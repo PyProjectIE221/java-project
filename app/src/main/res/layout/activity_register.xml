@@ -1,42 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:layout_margin="30sp"
-    tools:context=".RegisterActivity">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:gravity="center"
+tools:context=".RegisterActivity"
+android:background="@drawable/gradient_background">
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginBottom="100sp"
-        android:src="@drawable/register_text"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:hint="Email"
-        android:paddingLeft="10sp"
-        android:layout_marginBottom="10sp"
-        android:inputType="textEmailAddress"
-        android:id="@+id/email"
-        android:background="@drawable/btn_outline_text"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingLeft="10sp"
-        android:inputType="textPassword"
-        android:hint="Mật khẩu"
-        android:id="@+id/password"
-        android:layout_marginBottom="20sp"
-        android:background="@drawable/btn_outline_text"/>
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Đăng ký"
-        android:background="@drawable/btn_login"
-        android:textColor="@color/white"
-        android:id="@+id/register"/>
+        android:layout_width="116dp"
+        android:layout_height="113dp"
+        android:paddingBottom="20dp"
+        app:srcCompat="@drawable/tinder_logo_white">
+
+    </ImageView>
+
+    <ImageView
+        android:layout_width="247dp"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/imatch"></ImageView>
 </LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="50dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    >
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:autofillHints="emailAddress"
+        android:background="@drawable/btn_white_pressed"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:autofillHints="password"
+        android:background="@drawable/btn_white_pressed"
+        android:hint="Mật khẩu"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:padding="10dp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đăng kí"
+        android:id="@+id/register"
+        android:textSize="20dp"
+        android:paddingHorizontal="30dp"
+        android:textColor="@color/whiteGray"
+        android:backgroundTint="@color/darkRed">
+
+    </Button>
+
+
+</LinearLayout>
+
+</LinearLayout>
+
+
+
