@@ -41,6 +41,7 @@
         <entry key="..\:/Users/DELL/AndroidStudioProjects/FinalProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1195" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/FinalProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/FinalProject/app/src/main/res/mipmap-xhdpi/ic_launcher.xml" value="0.1195" />
+<<<<<<< HEAD
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.11510416666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.11510416666666666" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.11510416666666666" />
@@ -52,10 +53,16 @@
         <entry key="app/src/main/res/layout/fragment_swipe.xml" value="0.11510416666666666" />
         <entry key="app/src/main/res/layout/item_hobbies.xml" value="0.11510416666666666" />
         <entry key="app/src/main/res/layout/test.xml" value="0.11510416666666666" />
+=======
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/drawable/btn_login.xml" value="0.16" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/drawable/btn_white_pressed.xml" value="0.1505" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/activity_register.xml" value="0.264" />
+>>>>>>> 33c0a641297a4c03d49809020cf60d8eb23b4c4d
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
