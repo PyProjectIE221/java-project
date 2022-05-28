@@ -41,6 +41,17 @@
         <entry key="..\:/Users/DELL/AndroidStudioProjects/FinalProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1195" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/FinalProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/FinalProject/app/src/main/res/mipmap-xhdpi/ic_launcher.xml" value="0.1195" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.11510416666666666" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.11510416666666666" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.11510416666666666" />
+        <entry key="app/src/main/res/layout/activity_register_birth_day.xml" value="0.11510416666666666" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.11510416666666666" />
+        <entry key="app/src/main/res/layout/activity_start.xml" value="0.11510416666666666" />
+        <entry key="app/src/main/res/layout/fragment_chatting.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.11510416666666666" />
+        <entry key="app/src/main/res/layout/fragment_swipe.xml" value="0.11510416666666666" />
+        <entry key="app/src/main/res/layout/item_hobbies.xml" value="0.11510416666666666" />
+        <entry key="app/src/main/res/layout/test.xml" value="0.11510416666666666" />
       </map>
     </option>
   </component>
