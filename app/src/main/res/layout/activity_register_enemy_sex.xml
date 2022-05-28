@@ -16,25 +16,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerInParent="true"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
         android:gravity="center">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:src="@drawable/enemy_sex_text"
-            android:layout_marginBottom="30dp"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/lato_regular"
+            android:paddingBottom="50dp"
+            android:gravity="left"
+            android:text="Đối tượng tìm kiếm"
+            android:textColor="@color/darkBlue"
+            android:textSize="35dp" />
+
+
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/radioGroup"
             android:checkedButton="@id/male">
             <RadioButton
-                android:layout_width="300dp"
-                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
                 android:text="Nam"
-                android:textSize="30dp"
-                android:textColor="@color/darkGrayLight"
-                android:textStyle="bold"
+                android:textSize="25dp"
+                android:textColor="@color/md_blue_grey_300"
                 android:layout_gravity="center"
                 android:background="@drawable/radio_background"
                 android:gravity="center"
@@ -43,12 +53,12 @@
                 android:id="@+id/male"
                 />
             <RadioButton
-                android:layout_width="300dp"
-                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
                 android:text="Nữ"
-                android:textSize="30dp"
-                android:textColor="@color/darkGrayLight"
-                android:textStyle="bold"
+                android:textSize="25dp"
+                android:textColor="@color/md_blue_grey_300"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:button="@color/white"
@@ -56,12 +66,12 @@
                 android:layout_marginBottom="10dp"
                 android:id="@+id/female"/>
             <RadioButton
-                android:layout_width="300dp"
-                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
                 android:text="Khác"
-                android:textSize="30dp"
-                android:textColor="@color/darkGrayLight"
-                android:textStyle="bold"
+                android:textSize="25dp"
+                android:textColor="@color/md_blue_grey_300"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:button="@color/white"
@@ -69,13 +79,17 @@
                 android:layout_marginBottom="50dp"
                 android:id="@+id/other"/>
         </RadioGroup>
+
         <Button
-            android:layout_width="300dp"
+            android:id="@+id/btnConfirm"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_confirm"
             android:text="Xác nhận"
             android:textColor="@color/white"
-            android:background="@drawable/btn_login"
-            android:id="@+id/btnConfirm"/>
+            android:textSize="20dp" />
+
     </LinearLayout>
 
 

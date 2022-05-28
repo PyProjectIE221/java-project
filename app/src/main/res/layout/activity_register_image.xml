@@ -12,29 +12,42 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="30dp"
         android:id="@+id/btnBack"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_marginStart="50dp"
         android:gravity="center"
         android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/lato_medium"
+            android:gravity="center"
+            android:paddingBottom="25dp"
+            android:text="Ảnh đại diện"
+            android:textColor="@color/darkBlue"
+            android:textSize="40dp" />
+
         <ImageView
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/image_text"
-            android:layout_marginBottom="20dp"/>
-        <ImageView
+            android:id="@+id/profileImage"
             android:layout_width="200dp"
             android:layout_height="300dp"
-            android:src="@drawable/image_placeholder"
-            android:id="@+id/profileImage"
-            android:layout_marginBottom="40dp"/>
+            android:layout_marginBottom="40dp"
+            android:src="@drawable/image_placeholder" />
+
         <Button
-            android:layout_width="300dp"
+            android:id="@+id/btnConfirm"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_confirm"
             android:text="Xác nhận"
             android:textColor="@color/white"
-            android:background="@drawable/btn_login"
-            android:id="@+id/btnConfirm"/>
+            android:textSize="20dp" />
     </LinearLayout>
 </RelativeLayout>

@@ -13,17 +13,19 @@
         android:layout_height="50dp"
         android:layout_marginTop="150dp"
         android:src="@drawable/tinder_logo_text"/>
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginTop="250dp"
-        android:src="@drawable/tinder_logo_white"/>
+        android:src="@drawable/tinder_logo_white" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp">
+        android:layout_marginBottom="100dp"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
@@ -31,18 +33,18 @@
             android:layout_margin="20dp"
             android:gravity="center"
             android:text="Bằng cách nhấn Đăng nhập, bạn đồng ý với Điều khoản và Điều kiện và Chính sách Bảo mật của chúng tôi"
-            android:textColor="@color/white"
-            />
+            android:textColor="@color/white" />
+
         <Button
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
-            android:text="Đăng nhập"
             android:background="@drawable/btn_blue_selector"
-            android:id="@+id/btnLogin"
-            android:textColor="@color/white"/>
+            android:text="Đăng nhập"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/btnRegister"
@@ -52,6 +54,6 @@
             android:layout_marginEnd="20dp"
             android:background="@drawable/btn_outline_bg"
             android:text="Đăng ký"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white" />
     </LinearLayout>
 </RelativeLayout>
