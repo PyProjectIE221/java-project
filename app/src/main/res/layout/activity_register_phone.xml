@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".RegisterInfo.RegisterPhone">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:src="@drawable/phone_text" />
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:hint="phone"
+        android:inputType="phone"
+        android:backgroundTint="@android:color/darker_gray"
+        android:layout_marginBottom="30dp"
+        android:id="@+id/phone"/>
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Xác nhận"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_login"
+        android:id="@+id/btnConfirm"/>
+</LinearLayout>

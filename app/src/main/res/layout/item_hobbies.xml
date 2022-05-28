@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheckBox
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Hobbies"
+    android:id="@+id/hobbies1"
+    android:padding="10sp">
+</CheckBox>
+<!--    <CheckBox-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Hobbies"-->
+<!--        android:id="@+id/hobbies2"-->
+<!--        android:background="@drawable/radio_background"-->
+<!--        android:padding="10sp"-->
+<!--        android:button="@color/white"/>-->
+<!--    <CheckBox-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Hobbies"-->
+<!--        android:id="@+id/hobbies3"-->
+<!--        android:background="@drawable/radio_background"-->
+<!--        android:padding="10sp"-->
+<!--        android:button="@color/white"/>-->
