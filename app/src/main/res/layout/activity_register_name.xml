@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterInfo.RegisterName">
+
     <ImageView
         android:layout_width="30dp"
         android:layout_height="30dp"
@@ -12,36 +13,52 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="30dp"
         android:id="@+id/btnBack"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="50dp"
         android:gravity="center"
-        android:layout_centerInParent="true">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:src="@drawable/name_text" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/lato_medium"
+            android:paddingBottom="25dp"
+            android:text="Tên của bạn"
+            android:textColor="@color/darkBlue"
+            android:textSize="40dp" />
+
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@android:color/darker_gray"
+            android:hint="Nhập tên"
+            android:inputType="textPersonName"
+            android:textSize="25dp" />
+
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:text="Đây sẽ là tên hiển thị của bạn"
-            android:layout_marginBottom="30dp"/>
-        <EditText
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:paddingLeft="10dp"
-            android:hint="Tên"
-            android:inputType="textPersonName"
-            android:backgroundTint="@android:color/darker_gray"
-            android:layout_marginBottom="30dp"
-            android:id="@+id/name"/>
-        <Button
-            android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginBottom="30dp"
+            android:text="Đây sẽ là tên hiển thị trên Imatch"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_confirm"
             android:text="Xác nhận"
             android:textColor="@color/white"
-            android:background="@drawable/btn_login"
-            android:id="@+id/btnConfirm"/>
+            android:textSize="20dp" />
     </LinearLayout>
 </RelativeLayout>

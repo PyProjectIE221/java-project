@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CheckBox
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Hobbies"
     android:id="@+id/hobbies1"
-    android:padding="10sp">
+    android:gravity="center"
+    android:button="@null"
+    android:background="@drawable/hobby_background"
+    android:textColor="@color/md_grey_400"
+    android:layout_marginBottom="5dp"
+    android:padding="7dp"
+
+    >
 </CheckBox>
 <!--    <CheckBox-->
 <!--        android:layout_width="wrap_content"-->
