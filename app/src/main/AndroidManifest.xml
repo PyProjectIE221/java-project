@@ -13,15 +13,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject">
-<!--        <activity-->
-<!--            android:name=".InfoActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".ImageActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".SettingActivity"-->
-<!--            android:exported="false" />-->
+        <activity
+            android:name=".InfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ImageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingActivity"
+            android:exported="false" />
         <activity
             android:name=".Chat.ChatActivity"
             android:exported="false" />

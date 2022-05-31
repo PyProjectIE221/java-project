@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    tools:context=".InfoActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sửa thông tin"
+                android:textSize="20dp"
+                android:layout_weight="3"
+                android:gravity="right"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xong"
+                android:layout_weight="2"
+                android:textSize="15dp"
+                android:gravity="right"
+                android:textColor="@color/colorPrimary"
+                android:paddingRight="20sp"
+                android:id="@+id/confirm"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20sp"
+            android:gravity="center">
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Chỉnh sửa"
+                android:background="@color/white"
+                android:textColor="@color/colorPrimary"/>
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10sp"
+            android:text="Giới thiệu bản thân"
+            android:textStyle="bold"
+            android:textColor="@color/darkGray"
+            android:background="@color/md_grey_300"
+            android:textSize="15dp"
+            android:layout_marginTop="20sp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Giới thiệu bản thân"
+            android:paddingLeft="10sp"
+            android:id="@+id/introduce"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10sp"
+            android:text="Tên hiển thị"
+            android:textStyle="bold"
+            android:textColor="@color/darkGray"
+            android:background="@color/md_grey_300"
+            android:textSize="15dp"
+            android:layout_marginTop="20sp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tên"
+            android:paddingLeft="10sp"
+            android:id="@+id/name"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10sp"
+            android:text="Sở thích"
+            android:textStyle="bold"
+            android:textColor="@color/darkGray"
+            android:background="@color/md_grey_300"
+            android:textSize="15dp"
+            android:layout_marginTop="20sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thêm sở thích của tôi"
+            android:textSize="20dp"
+            android:paddingLeft="10sp"
+            android:id="@+id/hobbies"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10sp"
+            android:text="Trường học \| Công ty"
+            android:textStyle="bold"
+            android:textColor="@color/darkGray"
+            android:background="@color/md_grey_300"
+            android:textSize="15dp"
+            android:layout_marginTop="20sp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Trường học hoặc công ty của bạn"
+            android:paddingLeft="10sp"
+            android:id="@+id/school"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10sp"
+            android:text="Giới tính của bạn"
+            android:textStyle="bold"
+            android:textColor="@color/darkGray"
+            android:background="@color/md_grey_300"
+            android:textSize="15dp"
+            android:layout_marginTop="20sp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Giới tính của bản thân"
+            android:paddingLeft="10sp"
+            android:id="@+id/userSex"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10sp"
+            android:text="Giới tính của đối phương"
+            android:textStyle="bold"
+            android:textColor="@color/darkGray"
+            android:background="@color/md_grey_300"
+            android:textSize="15dp"
+            android:layout_marginTop="20sp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Giới tính muốn tìm"
+            android:paddingLeft="10sp"
+            android:id="@+id/enemySex"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10sp"
+            android:text="Đang sống tại"
+            android:textStyle="bold"
+            android:textColor="@color/darkGray"
+            android:background="@color/md_grey_300"
+            android:textSize="15dp"
+            android:layout_marginTop="20sp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Thêm thành phố của bạn"
+            android:paddingLeft="10sp"
+            android:id="@+id/address"/>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
