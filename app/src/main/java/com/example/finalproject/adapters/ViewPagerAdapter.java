@@ -6,20 +6,19 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 
-import com.example.finalproject.fragments.ChattingFragment;
-import com.example.finalproject.fragments.SettingsFragment;
-import com.example.finalproject.fragments.SwipeFragment;
-
 import java.util.List;
 
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
-
     private List<Fragment> fragmentList;
-    public ViewPagerAdapter(@NonNull List<Fragment> fragmentList,FragmentManager fragmentManager) {
-        super(fragmentManager);
+
+    public ViewPagerAdapter(@NonNull List<Fragment> fragmentList,FragmentManager fragmentManager, int behavior) {
+        super(fragmentManager,behavior);
+
         this.fragmentList = fragmentList;
     }
+
+
 
     @NonNull
     @Override
@@ -35,4 +34,6 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     public int getCount() {
         return fragmentList.size();
     }
+
+
 }
