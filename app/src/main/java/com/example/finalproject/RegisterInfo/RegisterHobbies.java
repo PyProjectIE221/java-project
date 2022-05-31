@@ -1,6 +1,7 @@
 package com.example.finalproject.RegisterInfo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -63,7 +64,7 @@ public class RegisterHobbies extends AppCompatActivity {
             }
         };
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,3));
         adapter = new MainAdapter(arrayList,itemClickListener);
         recyclerView.setAdapter(adapter);
 
