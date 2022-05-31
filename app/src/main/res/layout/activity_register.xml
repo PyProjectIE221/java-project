@@ -25,7 +25,7 @@ android:background="@drawable/gradient_background">
     <ImageView
         android:layout_width="247dp"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/imatch"></ImageView>
+        app:srcCompat="@drawable/imatch_text"></ImageView>
 </LinearLayout>
 
 <LinearLayout
