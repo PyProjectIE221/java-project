@@ -41,10 +41,36 @@
         <entry key="..\:/Users/DELL/AndroidStudioProjects/FinalProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1195" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/FinalProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/FinalProject/app/src/main/res/mipmap-xhdpi/ic_launcher.xml" value="0.1195" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/drawable/btn_blue_pressed.xml" value="0.1755" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/drawable/btn_blue_selector.xml" value="0.184" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/drawable/btn_confirm.xml" value="0.184" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/drawable/btn_hobby.xml" value="0.144" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/drawable/btn_hobby_uncheck.xml" value="0.2015" />
         <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/drawable/btn_login.xml" value="0.16" />
-        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/drawable/btn_white_pressed.xml" value="0.1505" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/drawable/btn_outline_primary.xml" value="0.213" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/drawable/btn_outline_text.xml" value="0.213" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/drawable/btn_white_pressed.xml" value="0.2" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/drawable/checked_radio.xml" value="0.2045" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/drawable/hobby_background.xml" value="0.2015" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/drawable/radio_background.xml" value="0.2045" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/drawable/uncheck_radio.xml" value="0.2045" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/font/lato.xml" value="0.2453125" />
         <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/activity_register_birth_day.xml" value="0.2" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/activity_register_enemy_sex.xml" value="0.264" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/activity_register_hobbies.xml" value="0.264" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/activity_register_image.xml" value="0.264" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/activity_register_name.xml" value="0.1" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/activity_register_phone.xml" value="0.21510416666666668" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/activity_register_sex.xml" value="0.264" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/activity_start.xml" value="0.264" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/btn_hobby.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/fragment_settings.xml" value="0.2" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/item.xml" value="0.2" />
+        <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/item_hobbies.xml" value="0.264" />
       </map>
     </option>
   </component>
