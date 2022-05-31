@@ -11,22 +11,23 @@
 <!--        android:layout_height="wrap_content"-->
 <!--        android:text="Đăng xuất"-->
 <!--        android:id="@+id/btnLogout"/>-->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/white"
-        app:itemIconSize="35dp"
-        app:itemIconTint="@drawable/bottom_navigation_color_selector"
-        app:labelVisibilityMode="unlabeled"
-        app:menu="@menu/bottom_nav_menu_main"/>
-<!--    <com.lorentzos.flingswipe.SwipeFlingAdapterView-->
+    <!--    <com.lorentzos.flingswipe.SwipeFlingAdapterView-->
 <!--        android:id="@+id/frame"-->
 <!--        android:background="#ffeee9e2"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent"-->
 <!--        app:rotation_degrees="15.5"-->
 <!--        tools:context=".MyActivity" />-->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:itemIconSize="35dp"
+        app:itemIconTint="@drawable/bottom_navigation_color_selector"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottom_nav_menu_main" />
+
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
