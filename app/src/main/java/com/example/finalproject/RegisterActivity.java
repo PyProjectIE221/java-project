@@ -68,10 +68,12 @@ public class RegisterActivity extends AppCompatActivity {
                             DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
                             Map userInfo = new HashMap();
                             userInfo.put("profileImageUrl","default");
+                            userInfo.put("phone","default");
+                            userInfo.put("name","default");
+                            userInfo.put("birthDay","19/10/2000");
+                            userInfo.put("userSex","Nam");
+                            userInfo.put("enemySex","Nữ");
                             db.updateChildren(userInfo);
-                            Intent intent = new Intent(RegisterActivity.this, RegisterPhone.class);
-                            startActivity(intent);
-                            finish();
                         }
                     });
                 }

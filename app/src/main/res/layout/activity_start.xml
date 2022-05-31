@@ -8,11 +8,12 @@
     android:background="@drawable/rect_gradient_bg"
     tools:context=".StartActivity"
     android:orientation="vertical">
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginTop="150dp"
-        android:src="@drawable/tinder_logo_text"/>
+        android:src="@drawable/imatch_text" />
 
     <ImageView
         android:layout_width="wrap_content"

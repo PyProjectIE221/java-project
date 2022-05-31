@@ -34,12 +34,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:backgroundTint="@android:color/darker_gray"
-            android:hint="phone"
+            android:hint="Số điện thoại"
             android:inputType="phone"
-            android:letterSpacing="0.25"
-            android:text="Số điện thoại"
+            android:letterSpacing="0.20"
             android:textColor="@color/md_blue_grey_200"
-
             android:textSize="30dp" />
 
         <Button
