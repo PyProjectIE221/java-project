@@ -46,9 +46,6 @@ public class SettingsFragment extends Fragment {
     private String currentUid;
     int nowYear;
     private DatabaseReference userDb;
-    public SettingsFragment(){
-
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

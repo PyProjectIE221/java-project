@@ -21,29 +21,28 @@ import com.example.finalproject.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MatchesAdapter extends RecyclerView.Adapter<MatchesAdapter.ViewHolder> implements Filterable{
-    private List<MatchesObject> matchesObjectList, matchesObjectListAll;
+public class MatchesAdapterHorizon extends RecyclerView.Adapter<MatchesAdapterHorizon.ViewHolder> implements Filterable {
+    private List<MatchesObject> matchesObjectList,  matchesObjectListAll;
     private Context mContext;
 
-    public MatchesAdapter(List<MatchesObject> matchesObjectList, Context mContext){
+    public MatchesAdapterHorizon(List<MatchesObject> matchesObjectList, Context mContext){
         this.matchesObjectList = matchesObjectList;
         this.mContext = mContext;
         this.matchesObjectListAll = matchesObjectList;
     }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_matches, parent, false);
-        RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_matches_horizon, parent, false);
+        RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutView.setLayoutParams(lp);
-        return new ViewHolder(layoutView);
+        ViewHolder rcv = new ViewHolder(layoutView);
+        return rcv;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MatchesAdapterHorizon.ViewHolder holder, int position) {
         MatchesObject obj = matchesObjectList.get(position);
-        holder.mMatchName.setText(obj.getUserName());
         holder.mMatchId.setText(obj.getUserId());
         Glide.with(mContext).load(obj.getImageUrl()).into(holder.mMatchImage);
     }
@@ -58,8 +57,7 @@ public class MatchesAdapter extends RecyclerView.Adapter<MatchesAdapter.ViewHold
         return filter;
     }
 
-    Filter filter = new Filter(){
-
+    Filter filter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
             List<MatchesObject> filteredList = new ArrayList<>();
@@ -87,13 +85,12 @@ public class MatchesAdapter extends RecyclerView.Adapter<MatchesAdapter.ViewHold
     };
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        public TextView mMatchName,mMatchId;
         public ImageView mMatchImage;
+        public TextView mMatchId;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
             mMatchId = itemView.findViewById(R.id.MatchId);
-            mMatchName = itemView.findViewById(R.id.MatchName);
             mMatchImage = itemView.findViewById(R.id.MatchImage);
 
         }

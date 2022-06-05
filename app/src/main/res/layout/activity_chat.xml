@@ -10,10 +10,9 @@
         android:id="@+id/header_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10sp"
+        android:background="@color/md_grey_100"
         android:orientation="horizontal"
-        android:paddingBottom="10sp"
-        android:background="@color/md_grey_50">
+        android:paddingBottom="10sp">
 
         <ImageView
             android:id="@+id/btnBack"
@@ -27,17 +26,17 @@
             android:id="@+id/matchImage"
             android:layout_width="40sp"
             android:layout_height="40sp"
-            android:layout_marginLeft="10sp"
+            android:layout_marginLeft="20sp"
             android:layout_marginTop="5dp"
             android:src="@mipmap/ic_launcher" />
 
         <TextView
+            android:id="@+id/matchName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="15sp"
-            android:text="Tên của user"
-            android:id="@+id/matchName"/>
+            android:text="Tên của user" />
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView

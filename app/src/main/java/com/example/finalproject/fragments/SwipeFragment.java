@@ -47,9 +47,7 @@ public class SwipeFragment extends Fragment {
     private ViewPager2 viewPager2;
     private FloatingActionButton fabBack,fabLike, fabSkip;
     int nowYear;
-    public SwipeFragment(){
 
-    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
