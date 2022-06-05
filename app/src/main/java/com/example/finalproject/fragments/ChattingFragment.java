@@ -5,17 +5,26 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.ContentInfo;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.EditText;
 
+import com.example.finalproject.Chat.ChatObject;
 import com.example.finalproject.Matches.MatchesAdapter;
+import com.example.finalproject.Matches.MatchesAdapterHorizon;
 import com.example.finalproject.Matches.MatchesObject;
 import com.example.finalproject.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,19 +39,19 @@ import java.util.List;
 
 
 public class ChattingFragment extends Fragment {
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter mMatchesAdapter;
-    private RecyclerView.LayoutManager mMatchesLayoutManager;
+    private RecyclerView recyclerView, recyclerViewHorizontal;
+    private MatchesAdapterHorizon mMatchesAdapterHorizon;
+    private MatchesAdapter mMatchesAdapter;
+    private RecyclerView.LayoutManager mMatchesLayoutManager, mMatchesLayoutManagerHorizontal;
     private String currentUserId;
     private Context mContext;
+    private SearchView mFilter;
 
-    public ChattingFragment(){
-
-    }
 
     @Override
     public void onResume() {
         super.onResume();
+        mFilter.setQuery("", false);
         getUserMatchId();
     }
 
@@ -50,6 +59,7 @@ public class ChattingFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,7 +72,9 @@ public class ChattingFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         mContext = getContext();
+        mFilter = view.findViewById(R.id.filter);
         currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setNestedScrollingEnabled(false);
@@ -72,13 +84,38 @@ public class ChattingFragment extends Fragment {
         mMatchesAdapter = new MatchesAdapter(getMatches(),mContext);
         recyclerView.setAdapter(mMatchesAdapter);
 
+        mMatchesAdapterHorizon = new MatchesAdapterHorizon(getMatches(),mContext);
+        recyclerViewHorizontal = view.findViewById(R.id.recyclerViewHorizontal);
+        recyclerViewHorizontal.setNestedScrollingEnabled(false);
+        recyclerViewHorizontal.setHasFixedSize(true);
+        mMatchesLayoutManagerHorizontal = new LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,false);
+        recyclerViewHorizontal.setLayoutManager(mMatchesLayoutManagerHorizontal);
+        recyclerViewHorizontal.setAdapter(mMatchesAdapterHorizon);
+
         getUserMatchId();
 
+
+        mFilter.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                mMatchesAdapter.getFilter().filter(newText);
+                mMatchesAdapterHorizon.getFilter().filter(newText);
+                return false;
+            }
+        });
     }
+
 
     private void getUserMatchId() {
         resultMatches.removeAll(resultMatches);
-//        mMatchesAdapter.notifyDataSetChanged();
+        mMatchesAdapter.notifyDataSetChanged();
+        mMatchesAdapterHorizon.notifyDataSetChanged();
+
         DatabaseReference userDb = FirebaseDatabase.getInstance().getReference().child("Users")
                 .child(currentUserId).child("connections").child("matches");
         userDb.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -115,6 +152,7 @@ public class ChattingFragment extends Fragment {
                     }
                     MatchesObject obj = new MatchesObject(userId,userName,profileImageUrl);
                     resultMatches.add(obj);
+                    mMatchesAdapterHorizon.notifyDataSetChanged();
                     mMatchesAdapter.notifyDataSetChanged();
                 }
             }
@@ -129,4 +167,5 @@ public class ChattingFragment extends Fragment {
     private List<MatchesObject> getMatches() {
         return resultMatches;
     }
+
 }
