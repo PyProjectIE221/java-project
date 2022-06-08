@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,11 +13,13 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.finalproject.R;
+import com.example.finalproject.utils.VerticalSpaceItemDecoration;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class RegisterHobbies extends AppCompatActivity {
@@ -30,11 +33,17 @@ public class RegisterHobbies extends AppCompatActivity {
         setContentView(R.layout.activity_register_hobbies);
 
         recyclerView = findViewById(R.id.recyclerView);
-        ArrayList<String> arrayList = new ArrayList<>();
+//        ArrayList<String> arrayList = new ArrayList<>();
+//
+//        for(int i=0;i<30;i++){
+//            arrayList.add("Button "+i);
+//        }
 
-        for(int i=0;i<30;i++){
-            arrayList.add("Button "+i);
-        }
+        ArrayList<String> arrayList = new ArrayList<String>(
+            Arrays.asList("yoga", "truyện tranh", "bóng đá", "xem phim", "ăn tối", "gym", "k-pop", "mạng xã hội",
+                    "võ", "chạy bộ", "hip hop", "karaoke", "xăm", "hội họa", "nghệ thuật", "trao đổi ngôn ngữ",
+                    "làm đẹp", "thời trang", "đọc sách", "cầu lông", "mô tô", "văn thơ", "anime", "nhảy")
+        );
 
         results = new ArrayList<>();
 
@@ -64,7 +73,11 @@ public class RegisterHobbies extends AppCompatActivity {
             }
         };
 
-        recyclerView.setLayoutManager(new GridLayoutManager(this,3));
+//        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(9, StaggeredGridLayoutManager.HORIZONTAL));
+        VerticalSpaceItemDecoration itemDecoration = new VerticalSpaceItemDecoration(20,30);
+        recyclerView.addItemDecoration(itemDecoration);
         adapter = new MainAdapter(arrayList,itemClickListener);
         recyclerView.setAdapter(adapter);
 

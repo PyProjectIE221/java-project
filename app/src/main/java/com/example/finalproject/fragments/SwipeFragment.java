@@ -40,7 +40,8 @@ public class SwipeFragment extends Fragment {
     private List<Cards> rowItems;
     private Context mContext;
     private String userSex;
-    private  String oppositeUserSex;
+    private String oppositeUserSex;
+    private double lat, lon, distance, oppoLat, oppoLon, oppoDistance;
     private CardArrayAdapter arrayAdapter;
     private DatabaseReference usersDb;
     private String currentUid, enemyUid;
@@ -227,6 +228,12 @@ public class SwipeFragment extends Fragment {
                         userSex = snapshot.child("userSex").getValue().toString();
                         oppositeUserSex = snapshot.child("enemySex").getValue().toString();
                     }
+                    if(snapshot.child("lat") !=null && snapshot.child("long") != null &&
+                            snapshot.child("lat").getValue() !=null && snapshot.child("long").getValue() != null){
+                        lat = Double.parseDouble(snapshot.child("lat").getValue().toString());
+                        lon = Double.parseDouble(snapshot.child("long").getValue().toString());
+                        distance = Double.parseDouble(snapshot.child("distance").getValue().toString());
+                    }
                     getOppositeUsers();
                 }
             }
@@ -237,16 +244,31 @@ public class SwipeFragment extends Fragment {
             }
         });
     }
-
+    public boolean findOpposite(DataSnapshot snapshot){
+        if(!snapshot.child("connections").child("yep").hasChild(currentUid) &&
+                !snapshot.child("connections").child("nope").hasChild(currentUid) &&
+                snapshot.child("userSex").getValue().toString().equals(oppositeUserSex)){
+            if(snapshot.child("lat") != null && snapshot.child("long")!= null && lat != 0.0 && lon != 0.0){
+                if(snapshot.child("lat").getValue()!=null && snapshot.child("long").getValue() != null) {
+                    oppoLat = Double.parseDouble(snapshot.child("lat").getValue().toString());
+                    oppoLon = Double.parseDouble(snapshot.child("long").getValue().toString());
+                    oppoDistance = calDistance(oppoLat, oppoLon, lat, lon, 'K');
+                    if ((distance - oppoDistance) < 0) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
     public void getOppositeUsers(){
         usersDb.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 if(snapshot.exists() && snapshot.child(currentUid).child("userSex")!=null) {
 
-                    if (!snapshot.child("connections").child("yep").hasChild(currentUid) &&
-                            !snapshot.child("connections").child("nope").hasChild(currentUid) &&
-                            snapshot.child("userSex").getValue().toString().equals(oppositeUserSex)) {
+                    if (findOpposite(snapshot)) {
                         String profileImageUrl = snapshot.child("profileImageUrl").getValue().toString();
                         String name = snapshot.child("name").getValue().toString();
                         String birthDay = snapshot.child("birthDay").getValue().toString();
@@ -313,7 +335,7 @@ public class SwipeFragment extends Fragment {
         return (rad * 180.0 / Math.PI);
     }
 
-    private double distance(double lat1, double lon1, double lat2, double lon2, char unit) {
+    private double calDistance(double lat1, double lon1, double lat2, double lon2, char unit) {
         double theta = lon1 - lon2;
         double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
         dist = Math.acos(dist);
@@ -324,8 +346,7 @@ public class SwipeFragment extends Fragment {
         } else if (unit == 'N') {
             dist = dist * 0.8684;
         }
-        return (dist);
+        return Math.round(dist*100.0)/100.0;
     }
-
 
 }

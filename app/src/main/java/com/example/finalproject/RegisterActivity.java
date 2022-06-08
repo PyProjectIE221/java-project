@@ -73,6 +73,7 @@ public class RegisterActivity extends AppCompatActivity {
                             userInfo.put("birthDay","19/10/2000");
                             userInfo.put("userSex","Nam");
                             userInfo.put("enemySex","Nữ");
+                            userInfo.put("distance","20");
                             db.updateChildren(userInfo);
                         }
                     });
