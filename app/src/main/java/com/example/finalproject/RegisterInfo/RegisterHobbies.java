@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class RegisterHobbies extends AppCompatActivity {
@@ -30,11 +31,12 @@ public class RegisterHobbies extends AppCompatActivity {
         setContentView(R.layout.activity_register_hobbies);
 
         recyclerView = findViewById(R.id.recyclerView);
-        ArrayList<String> arrayList = new ArrayList<>();
+        ArrayList<String> arrayList = new ArrayList<String>(
+                Arrays.asList("yoga", "truyện tranh", "bóng đá", "xem phim", "ăn tối", "gym", "k-pop", "mạng xã hội",
+                        "võ", "chạy bộ", "hip hop", "karaoke", "xăm", "hội họa", "nghệ thuật", "trao đổi ngôn ngữ",
+                        "làm đẹp", "thời trang", "đọc sách", "cầu lông", "mô tô", "văn thơ", "anime", "nhảy")
+        );
 
-        for(int i=0;i<30;i++){
-            arrayList.add("Button "+i);
-        }
 
         results = new ArrayList<>();
 

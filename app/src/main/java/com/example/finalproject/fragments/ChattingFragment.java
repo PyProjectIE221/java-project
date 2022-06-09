@@ -76,6 +76,7 @@ public class ChattingFragment extends Fragment {
         mContext = getContext();
         mFilter = view.findViewById(R.id.filter);
         currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setHasFixedSize(true);
