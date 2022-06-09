@@ -28,7 +28,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cài đặt"
+                android:text="Thiết lập tìm kiếm"
                 android:textSize="25dp"
                 android:textColor="@color/md_black_1000"
                 android:layout_weight="3"
@@ -71,6 +71,11 @@
                 android:textSize="17dp"
                 android:layout_weight="1"
                 android:hint="84 789 857 061"/>
+=======
+
+
+
+>>>>>>> hnquan
 
         </LinearLayout>
 
@@ -93,7 +98,7 @@
                     android:layout_weight="0.3"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
-                    android:text="Khoảng cách Tối đa"
+                    android:text="Phạm vi tìm kiếm"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20dp" />
 
@@ -210,7 +215,83 @@
                 android:gravity="left|center"
                 android:layout_weight="0.8"
                 android:layout_marginHorizontal="10dp" />
+=======
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="0.3"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="Hiển thị cho tôi"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="25dp" />
+
+                <TextView
+                    android:id="@+id/distanceID2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.7"
+                    android:textSize="25dp"
+                    android:textColor="@color/darkGray"
+                    android:gravity="center"
+                    android:text="Nữ"/>
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+>>>>>>> hnquan
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="0.3"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="Hiển thị tôi"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="25dp" />
+
+                <TextView
+                    android:id="@+id/distanceID3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.7"
+                    android:textSize="25dp"
+                    android:textColor="@color/darkGray"
+                    android:gravity="center"
+                    android:text="Có"/>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
 
 
         </LinearLayout>
