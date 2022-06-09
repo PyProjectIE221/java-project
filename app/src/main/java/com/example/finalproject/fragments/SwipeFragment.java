@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.finalproject.R;
@@ -186,6 +187,7 @@ public class SwipeFragment extends Fragment {
                 Cards cards = (Cards) dataObject;
                 enemyUid = cards.getUserid();
                 usersDb.child(enemyUid).child("connections").child("nope").child(currentUid).setValue(true);
+
             }
 
             @Override

@@ -207,13 +207,13 @@
                 android:layout_height="50dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="6dp">
+
                 <Button
+                    android:id="@+id/signOut"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Đăng xuất"
-                    android:id="@+id/signOut"
                     android:background="@color/white"
-                    />
+                    android:text="Đăng xuất" />
 
             </androidx.cardview.widget.CardView>
 

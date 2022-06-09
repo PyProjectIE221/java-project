@@ -44,7 +44,7 @@
             android:text="Cài đặt Tài khoản"
 
             android:textColor="@color/darkGray"
-            android:textSize="20dp" />
+            android:textSize="25dp" />
 
         <LinearLayout
             android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
                 android:layout_height="50dp"
                 android:text="Số điện thoại"
                 android:paddingLeft="10dp"
-                android:textSize="20dp"
+                android:textSize="25dp"
                 android:gravity="left|center"
                 android:layout_weight="0.8"
                 android:layout_marginHorizontal="10dp"
@@ -66,9 +66,10 @@
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
                 android:layout_weight="1"
-                android:hint="84  789  857  061"/>
+                android:hint="84 789 857 061"/>
 
         </LinearLayout>
 
@@ -93,13 +94,13 @@
                     android:paddingLeft="10dp"
                     android:text="Khoảng cách Tối đa"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="25dp" />
+                    android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/distanceID"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="0.7"
+                android:layout_weight="1"
                 android:textSize="25dp"
                 android:textColor="@color/darkGray"
                 android:gravity="center"
@@ -148,7 +149,7 @@
                     android:paddingLeft="10dp"
                     android:text="Độ tuổi"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="25dp" />
+                    android:textSize="30dp" />
 
                 <TextView
                     android:id="@+id/ageID"
@@ -182,7 +183,177 @@
 
 
         </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:fontFamily="@font/lato_bold"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="Liên hệ với Chúng tôi"
 
+            android:textColor="@color/darkGray"
+            android:textSize="25dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="10dp"
+            android:background="@color/white">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Trợ giúp và Hỗ trợ"
+                android:paddingLeft="10dp"
+                android:textSize="25dp"
+                android:gravity="left|center"
+                android:layout_weight="0.8"
+                android:layout_marginHorizontal="10dp" />
+
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:fontFamily="@font/lato_bold"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="Cộng đồng"
+
+            android:textColor="@color/darkGray"
+            android:textSize="25dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="10dp"
+            android:background="@color/white">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Quy tắc cộng đồng"
+                android:paddingLeft="10dp"
+                android:textSize="25dp"
+                android:gravity="left|center"
+                android:layout_weight="0.8"
+                android:layout_marginHorizontal="10dp"
+                android:id="@+id/congdong" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Một vài lời khuyên an toàn"
+                android:paddingLeft="10dp"
+                android:textSize="25dp"
+                android:gravity="left|center"
+                android:layout_weight="0.8"
+                android:layout_marginHorizontal="10dp"
+                android:id="@+id/advice" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Trung tâm an toàn"
+                android:paddingLeft="10dp"
+                android:textSize="25dp"
+                android:gravity="left|center"
+                android:layout_weight="0.8"
+                android:layout_marginHorizontal="10dp"
+                android:id="@+id/center" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="0.3"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="Quyền riêng tư"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Một vài lời khuyên an toàn"
+                android:paddingLeft="10dp"
+                android:textSize="25dp"
+                android:gravity="left|center"
+                android:layout_weight="0.8"
+                android:layout_marginHorizontal="10dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Trung tâm an toàn"
+                android:paddingLeft="10dp"
+                android:textSize="25dp"
+                android:gravity="left|center"
+                android:layout_weight="0.8"
+                android:layout_marginHorizontal="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="0.3"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="Pháp lý"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Giấy phép"
+                android:paddingLeft="10dp"
+                android:textSize="25dp"
+                android:gravity="left|center"
+                android:layout_weight="0.8"
+                android:layout_marginHorizontal="10dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Điều khoản Sử dụng Dịch vụ"
+                android:paddingLeft="10dp"
+                android:textSize="25dp"
+                android:gravity="left|center"
+                android:layout_weight="0.8"
+                android:layout_marginHorizontal="10dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="100dp"
+            android:id="@+id/signOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:text="Đăng xuất" />
 
     </LinearLayout>
 
