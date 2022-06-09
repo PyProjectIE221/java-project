@@ -63,6 +63,9 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".ResetPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashScreen"
             android:exported="true"
             android:theme="@style/SplashScreen">
