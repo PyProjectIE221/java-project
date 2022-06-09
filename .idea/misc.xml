@@ -108,6 +108,24 @@
         <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/fragment_settings.xml" value="0.2" />
         <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/item.xml" value="0.2" />
         <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/item_hobbies.xml" value="0.264" />
+        <entry key="app/src/main/res/drawable/btn_login.xml" value="0.124" />
+        <entry key="app/src/main/res/layout/acitivity_info_usersex.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/layout/activity_register_birth_day.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/layout/activity_register_enemy_sex.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/layout/activity_register_image.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/layout/activity_register_name.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/layout/activity_register_phone.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/layout/activity_setting.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/layout/activity_start.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_chatting.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/layout/item_chat.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/layout/item_matches.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/layout/item_matches_horizon.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/layout/test.xml" value="0.24947916666666667" />
       </map>
     </option>
   </component>
