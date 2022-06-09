@@ -24,7 +24,7 @@
             android:fontFamily="@font/lato_medium"
             android:paddingBottom="50dp"
             android:gravity="center"
-            android:text="Điện thoại"
+            android:text="Số điện thoại"
             android:textColor="@color/darkBlue"
             android:textSize="40dp" />
 
@@ -34,11 +34,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:backgroundTint="@android:color/darker_gray"
-            android:hint="Số điện thoại"
+            android:hint="Nhập tại đây"
             android:inputType="phone"
             android:letterSpacing="0.20"
             android:textColor="@color/md_blue_grey_200"
-            android:textSize="30dp" />
+            android:textSize="25dp" />
 
         <Button
             android:id="@+id/btnConfirm"

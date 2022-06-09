@@ -29,9 +29,9 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/lato_medium"
             android:paddingBottom="25dp"
-            android:text="Tên của bạn"
+            android:text="Tên hiển thị của bạn"
             android:textColor="@color/darkBlue"
-            android:textSize="40dp" />
+            android:textSize="35dp" />
 
 
         <EditText

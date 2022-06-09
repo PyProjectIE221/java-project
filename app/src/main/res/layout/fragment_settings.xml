@@ -40,7 +40,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="20dp"
-                    android:src="@mipmap/ic_launcher"
+                    android:src="@drawable/ic_tinder_logo"
                     android:elevation="4dp"
                     app:layout_scrollFlags="scroll"
                     app:layout_anchorGravity="top|center_horizontal"/>
