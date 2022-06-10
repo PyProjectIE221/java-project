@@ -85,12 +85,13 @@ public class ChattingFragment extends Fragment {
         mMatchesAdapter = new MatchesAdapter(getMatches(),mContext);
         recyclerView.setAdapter(mMatchesAdapter);
 
-        mMatchesAdapterHorizon = new MatchesAdapterHorizon(getMatches(),mContext);
+
         recyclerViewHorizontal = view.findViewById(R.id.recyclerViewHorizontal);
         recyclerViewHorizontal.setNestedScrollingEnabled(false);
         recyclerViewHorizontal.setHasFixedSize(true);
         mMatchesLayoutManagerHorizontal = new LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,false);
         recyclerViewHorizontal.setLayoutManager(mMatchesLayoutManagerHorizontal);
+        mMatchesAdapterHorizon = new MatchesAdapterHorizon(getMatches(),mContext);
         recyclerViewHorizontal.setAdapter(mMatchesAdapterHorizon);
 
         getUserMatchId();

@@ -36,8 +36,7 @@ public class MatchesAdapterHorizon extends RecyclerView.Adapter<MatchesAdapterHo
         View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_matches_horizon, parent, false);
         RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutView.setLayoutParams(lp);
-        ViewHolder rcv = new ViewHolder(layoutView);
-        return rcv;
+        return new ViewHolder(layoutView);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.example.finalproject.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,16 +9,24 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.os.Handler;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.finalproject.R;
+import com.example.finalproject.SplashScreen;
+import com.example.finalproject.StartActivity;
 import com.example.finalproject.cards.CardArrayAdapter;
 import com.example.finalproject.cards.Cards;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -47,6 +56,9 @@ public class SwipeFragment extends Fragment {
     private String currentUid, enemyUid;
     private ViewPager2 viewPager2;
     private FloatingActionButton fabBack,fabLike, fabSkip;
+    private View viewDialog, viewMatch;
+    private Toast toast;
+    private Cards prevObj;
     int nowYear;
 
     @Override
@@ -69,17 +81,36 @@ public class SwipeFragment extends Fragment {
         fabBack = view.findViewById(R.id.fabBack);
         fabLike = view.findViewById(R.id.fabLike);
         fabSkip = view.findViewById(R.id.fabSkip);
+        ImageView btnInfo = view.findViewById(R.id.btnInfo);
         mContext = getContext();
         nowYear = Calendar.getInstance().get(Calendar.YEAR);
         mAuth = FirebaseAuth.getInstance();
         currentUid = mAuth.getCurrentUser().getUid();
+        viewDialog = getLayoutInflater().inflate(R.layout.info_page,null);
+        viewMatch = getLayoutInflater().inflate(R.layout.match_announce,(ViewGroup) view.findViewById(R.id.match_layout));
         usersDb = FirebaseDatabase.getInstance().getReference().child("Users");
         checkUserSex();
         rowItems = new ArrayList<Cards>();
         arrayAdapter = new CardArrayAdapter(mContext, R.layout.item, rowItems );
-
         SwipeFlingAdapterView flingContainer = view.findViewById(R.id.frame);
         flingContainer.setAdapter(arrayAdapter);
+        //Match announce
+        toast = new Toast(mContext);
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(viewMatch);
+        // Info bottom sheet
+        btnInfo.setOnClickListener(view1 -> {
+            BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(mContext);
+            bottomSheetDialog.setContentView(viewDialog);
+            bottomSheetDialog.show();
+
+            Button cancel = viewDialog.findViewById(R.id.btnBack);
+            cancel.setOnClickListener(view2 ->{
+                bottomSheetDialog.dismiss();
+            });
+        });
+        // Button action
         fabLike.setOnClickListener(view1 -> {
             flingContainer.getTopCardListener().selectRight();
         });
@@ -87,89 +118,74 @@ public class SwipeFragment extends Fragment {
             flingContainer.getTopCardListener().selectLeft();
         });
         fabBack.setOnClickListener(view1 -> {
-            DatabaseReference yepDb = FirebaseDatabase.getInstance().getReference().child("Users")
-                    .child(enemyUid).child("connections").child("yep").child(currentUid);
-            yepDb.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if(snapshot.exists()){
-                        yepDb.removeValue();
+            try {
+                DatabaseReference yepDb = FirebaseDatabase.getInstance().getReference().child("Users")
+                        .child(enemyUid).child("connections").child("yep").child(currentUid);
+                yepDb.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            yepDb.removeValue();
+                        }
                     }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-            DatabaseReference nopeDb = FirebaseDatabase.getInstance().getReference().child("Users")
-                    .child(enemyUid).child("connections").child("nope").child(currentUid);
-            nopeDb.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if(snapshot.exists()){
-                        nopeDb.removeValue();
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
                     }
-                }
+                });
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-            DatabaseReference matchDb = FirebaseDatabase.getInstance().getReference().child("Users")
-                    .child(enemyUid).child("connections").child("matches").child(currentUid);
-            matchDb.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if(snapshot.exists()){
-                        matchDb.removeValue();
+                DatabaseReference nopeDb = FirebaseDatabase.getInstance().getReference().child("Users")
+                        .child(enemyUid).child("connections").child("nope").child(currentUid);
+                nopeDb.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            nopeDb.removeValue();
+                        }
                     }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-            DatabaseReference userMatchDb = FirebaseDatabase.getInstance().getReference().child("Users")
-                    .child(currentUid).child("connections").child("matches").child(enemyUid);
-            userMatchDb.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if(snapshot.exists()){
-                        userMatchDb.removeValue();
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
                     }
-                }
+                });
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-            DatabaseReference backDb = usersDb.child(enemyUid);
-            backDb.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if(snapshot.exists()){
-                        String profileImageUrl = snapshot.child("profileImageUrl").getValue().toString();
-                        String name = snapshot.child("name").getValue().toString();
-                        String birthDay = snapshot.child("birthDay").getValue().toString();
-                        int year = Integer.parseInt(birthDay.substring(birthDay.length() - 4, birthDay.length()));
-                        String age = String.valueOf(nowYear - year);
-                        Cards item = new Cards(snapshot.getKey(), name, profileImageUrl, age);
-                        rowItems.add(item);
-                        arrayAdapter.notifyDataSetChanged();
+                DatabaseReference matchDb = FirebaseDatabase.getInstance().getReference().child("Users")
+                        .child(enemyUid).child("connections").child("matches").child(currentUid);
+                matchDb.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            matchDb.removeValue();
+                        }
                     }
-                }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
+                DatabaseReference userMatchDb = FirebaseDatabase.getInstance().getReference().child("Users")
+                        .child(currentUid).child("connections").child("matches").child(enemyUid);
+                userMatchDb.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            userMatchDb.removeValue();
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
+                rowItems.removeAll(rowItems);
+                arrayAdapter.notifyDataSetChanged();
+                new Handler().postDelayed(() -> {
+                    getOppositeUsers();
+                },500);
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         });
+
+        // Swipe card
+
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
             @Override
             public void removeFirstObjectInAdapter() {
@@ -179,12 +195,14 @@ public class SwipeFragment extends Fragment {
                 arrayAdapter.notifyDataSetChanged();
             }
 
+
             @Override
             public void onLeftCardExit(Object dataObject) {
                 //Do something on the left!
                 //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
                 Cards cards = (Cards) dataObject;
+                prevObj = cards;
                 enemyUid = cards.getUserid();
                 usersDb.child(enemyUid).child("connections").child("nope").child(currentUid).setValue(true);
             }
@@ -193,6 +211,7 @@ public class SwipeFragment extends Fragment {
             public void onRightCardExit(Object dataObject) {
                 Cards cards = (Cards) dataObject;
                 enemyUid = cards.getUserid();
+                prevObj = cards;
                 usersDb.child(enemyUid).child("connections").child("yep").child(currentUid).setValue(true);
                 isConnectionMatch(enemyUid);
             }
@@ -253,6 +272,7 @@ public class SwipeFragment extends Fragment {
                     oppoLat = Double.parseDouble(snapshot.child("lat").getValue().toString());
                     oppoLon = Double.parseDouble(snapshot.child("long").getValue().toString());
                     oppoDistance = calDistance(oppoLat, oppoLon, lat, lon, 'K');
+                    Log.d("Distance: ", String.valueOf(distance - oppoDistance));
                     if ((distance - oppoDistance) < 0) {
                         return false;
                     }
@@ -280,25 +300,49 @@ public class SwipeFragment extends Fragment {
                     }
                 }
             }
-
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
             }
-
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
             }
-
             @Override
             public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
 
+    public void getOppositeUsersNotNotify(){
+        usersDb.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                if(snapshot.exists() && snapshot.child(currentUid).child("userSex")!=null) {
+
+                    if (findOpposite(snapshot)) {
+                        String profileImageUrl = snapshot.child("profileImageUrl").getValue().toString();
+                        String name = snapshot.child("name").getValue().toString();
+                        String birthDay = snapshot.child("birthDay").getValue().toString();
+                        int year = Integer.parseInt(birthDay.substring(birthDay.length() - 4, birthDay.length()));
+                        String age = String.valueOf(nowYear - year);
+                        Cards item = new Cards(snapshot.getKey(), name, profileImageUrl, age);
+                        rowItems.add(item);
+                    }
+                }
+            }
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            }
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+            }
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
             }
         });
     }
@@ -310,7 +354,7 @@ public class SwipeFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
-                    Toast.makeText(mContext, "Match", Toast.LENGTH_SHORT).show();
+                    toast.show();
 
                     String key = FirebaseDatabase.getInstance().getReference().child("Chat").push().getKey();
 
