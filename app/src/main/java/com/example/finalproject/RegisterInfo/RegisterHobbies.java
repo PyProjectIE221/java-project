@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.finalproject.R;
+import com.example.finalproject.utils.VerticalSpaceItemDecoration;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -66,7 +68,8 @@ public class RegisterHobbies extends AppCompatActivity {
             }
         };
 
-        recyclerView.setLayoutManager(new GridLayoutManager(this,3));
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(9,StaggeredGridLayoutManager.HORIZONTAL));
+        recyclerView.addItemDecoration(new VerticalSpaceItemDecoration(13,20));
         adapter = new MainAdapter(arrayList,itemClickListener);
         recyclerView.setAdapter(adapter);
 

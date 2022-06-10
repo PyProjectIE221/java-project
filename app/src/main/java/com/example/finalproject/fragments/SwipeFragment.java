@@ -1,7 +1,6 @@
 package com.example.finalproject.fragments;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,22 +14,16 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-<<<<<<< HEAD
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-=======
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
->>>>>>> quan
+
+
 import android.widget.Toast;
 
 import com.example.finalproject.R;
-import com.example.finalproject.SplashScreen;
-import com.example.finalproject.StartActivity;
+
 import com.example.finalproject.cards.CardArrayAdapter;
 import com.example.finalproject.cards.Cards;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;

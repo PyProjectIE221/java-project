@@ -65,6 +65,10 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
+        mHobbies.setOnClickListener(view -> {
+            startActivity(new Intent(this, RegisterHobbies.class));
+        });
+
         btnBack.setOnClickListener(view -> {
             finish();
         });

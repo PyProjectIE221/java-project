@@ -6,27 +6,10 @@
     android:id="@+id/hobbies1"
     android:gravity="center"
     android:button="@null"
+    android:textSize="15dp"
     android:background="@drawable/hobby_background"
     android:textColor="@color/md_grey_400"
     android:paddingHorizontal="15dp"
     android:paddingVertical="7dp">
 
 </CheckBox>
-
-
-<!--    <CheckBox-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Hobbies"-->
-<!--        android:id="@+id/hobbies2"-->
-<!--        android:background="@drawable/radio_background"-->
-<!--        android:padding="10sp"-->
-<!--        android:button="@color/white"/>-->
-<!--    <CheckBox-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Hobbies"-->
-<!--        android:id="@+id/hobbies3"-->
-<!--        android:background="@drawable/radio_background"-->
-<!--        android:padding="10sp"-->
-<!--        android:button="@color/white"/>-->
