@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="vertical"
-    tools:context=".InfoActivity"
     android:background="@color/md_grey_100"
     >
     <LinearLayout
@@ -24,19 +23,8 @@
                 android:id="@+id/btnBack"
                 android:layout_width="19dp"
                 android:layout_height="17dp"
-                android:background="@drawable/back_btn_pink" />
+                android:background="@drawable/back_btn_pink"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Chỉnh sửa thông tin"
-                android:textSize="25dp"
-                android:textColor="@color/md_black_1000"
-                android:layout_weight="3"
-                android:fontFamily="@font/lato_regular"
-                android:gravity="center"
-
-                />
         </LinearLayout>
 
         <TextView
@@ -94,6 +82,7 @@
             android:background="@color/white"
             android:hint="Sở thích của tôi"
             android:fontFamily="@font/lato_regular"
+
             android:paddingLeft="10dp"
             android:gravity="center_vertical"
             android:textSize="17dp"
@@ -126,11 +115,11 @@
             android:fontFamily="@font/lato_bold"
             android:textColor="@color/darkGray"
             android:textSize="17dp"/>
-        <TextView
+        <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/white"
-            android:text="Nam"
+            android:hint="Nam"
             android:paddingLeft="10dp"
             android:fontFamily="@font/lato_regular"
             android:gravity="center_vertical"
@@ -145,35 +134,35 @@
             android:fontFamily="@font/lato_bold"
             android:textColor="@color/darkGray"
             android:textSize="17dp"/>
-        <TextView
+        <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Giới tính muốn tìm"
+            android:hint="Giới tính muốn tìm"
             android:background="@color/white"
             android:fontFamily="@font/lato_regular"
             android:paddingLeft="10dp"
             android:gravity="center_vertical"
             android:textSize="17dp"
             android:id="@+id/enemySex"/>
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:gravity="center_vertical"-->
-<!--            android:paddingLeft="10sp"-->
-<!--            android:text="Đang sống tại"-->
-<!--            android:fontFamily="@font/lato_bold"-->
-<!--            android:textColor="@color/darkGray"-->
-<!--            android:textSize="17dp" />-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10sp"
+            android:text="Đang sống tại"
+            android:fontFamily="@font/lato_bold"
+            android:textColor="@color/darkGray"
+            android:textSize="17dp" />
 
-<!--        <EditText-->
-<!--            android:id="@+id/address"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:background="@color/white"-->
-<!--            android:hint="Thêm thành phố của bạn"-->
-<!--            android:fontFamily="@font/lato_regular"-->
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:hint="Thêm thành phố của bạn"
+            android:fontFamily="@font/lato_regular"
 
-<!--            android:paddingLeft="10dp" />-->
+            android:paddingLeft="10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -195,3 +184,4 @@
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
+

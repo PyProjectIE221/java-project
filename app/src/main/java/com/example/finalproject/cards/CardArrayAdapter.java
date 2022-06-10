@@ -17,6 +17,7 @@ import com.example.finalproject.R;
 import java.util.List;
 
 public class CardArrayAdapter extends ArrayAdapter<Cards> {
+
     public CardArrayAdapter(@NonNull Context context, int resource, List<Cards> item) {
         super(context, resource,item);
     }
@@ -31,10 +32,11 @@ public class CardArrayAdapter extends ArrayAdapter<Cards> {
         TextView name = convertView.findViewById(R.id.name);
         TextView age = convertView.findViewById(R.id.age);
         ImageView profileImageUrl = convertView.findViewById(R.id.image);
-
         name.setText(card_items.getName());
         age.setText(card_items.getAge());
         Glide.with(getContext()).load(card_items.getProfileImageUrl()).into(profileImageUrl);
         return convertView;
     }
+
+
 }

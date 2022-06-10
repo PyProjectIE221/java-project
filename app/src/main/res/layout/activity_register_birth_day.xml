@@ -32,9 +32,9 @@
             android:fontFamily="@font/lato_medium"
             android:paddingBottom="50dp"
             android:gravity="left"
-            android:text="Sinh nhật của tôi"
+            android:text="Ngày sinh của bạn"
             android:textColor="@color/darkBlue"
-            android:textSize="40dp" />
+            android:textSize="37dp" />
 
         <EditText
             android:id="@+id/Birthday"

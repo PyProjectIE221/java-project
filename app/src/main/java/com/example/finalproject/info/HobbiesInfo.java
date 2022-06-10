@@ -1,8 +1,6 @@
-package com.example.finalproject.RegisterInfo;
+package com.example.finalproject.info;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -13,7 +11,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.finalproject.R;
-import com.example.finalproject.utils.VerticalSpaceItemDecoration;
+import com.example.finalproject.RegisterInfo.ItemClickListener;
+import com.example.finalproject.RegisterInfo.MainAdapter;
+import com.example.finalproject.RegisterInfo.RegisterHobbies;
+import com.example.finalproject.RegisterInfo.RegisterImage;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -21,8 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
-public class RegisterHobbies extends AppCompatActivity {
+public class HobbiesInfo extends AppCompatActivity {
     RecyclerView recyclerView;
     ItemClickListener itemClickListener;
     MainAdapter adapter;
@@ -30,7 +30,7 @@ public class RegisterHobbies extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_hobbies);
+        setContentView(R.layout.activity_hobbies_info);
 
         recyclerView = findViewById(R.id.recyclerView);
         ArrayList<String> arrayList = new ArrayList<String>(
@@ -69,7 +69,6 @@ public class RegisterHobbies extends AppCompatActivity {
         };
 
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(9,StaggeredGridLayoutManager.HORIZONTAL));
-        recyclerView.addItemDecoration(new VerticalSpaceItemDecoration(13,20));
         adapter = new MainAdapter(arrayList,itemClickListener);
         recyclerView.setAdapter(adapter);
 
@@ -85,9 +84,6 @@ public class RegisterHobbies extends AppCompatActivity {
             for(String result : results){
                 db.child(result).setValue(true);
             }
-            Intent intent = new Intent(RegisterHobbies.this, RegisterImage.class);
-            startActivity(intent);
         });
     }
-
 }
