@@ -8,11 +8,19 @@
 
     <ImageView
         android:id="@+id/btnBack"
-        android:layout_width="46dp"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="26dp"
         android:src="@drawable/back_button" />
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="30dp"
+        android:text="Quay lại"
+        android:textColor="@color/darkBlue"
+        android:textSize="22dp"></TextView>
 
 
     <LinearLayout
@@ -31,6 +39,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/lato_medium"
             android:paddingBottom="50dp"
+            android:layout_marginTop="30dp"
             android:gravity="left"
             android:text="Ngày sinh của bạn"
             android:textColor="@color/darkBlue"

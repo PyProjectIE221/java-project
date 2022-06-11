@@ -7,12 +7,20 @@
     tools:context=".RegisterInfo.RegisterName">
 
     <ImageView
+        android:id="@+id/btnBack"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:src="@drawable/back_button"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="30dp"
-        android:id="@+id/btnBack"/>
+        android:layout_marginTop="30dp"
+        android:src="@drawable/back_button" />
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="30dp"
+        android:text="Quay lại"
+        android:textColor="@color/darkBlue"
+        android:textSize="22dp"></TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,9 +37,12 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/lato_medium"
             android:paddingBottom="25dp"
+            android:layout_marginTop="50dp"
             android:text="Tên hiển thị của bạn"
             android:textColor="@color/darkBlue"
-            android:textSize="35dp" />
+            android:textSize="35dp"
+            android:textStyle="bold"/>
+
 
 
         <EditText
@@ -48,8 +59,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:layout_marginBottom="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
             android:text="Đây sẽ là tên hiển thị trên iMatch"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            />
 
         <Button
             android:id="@+id/btnConfirm"
