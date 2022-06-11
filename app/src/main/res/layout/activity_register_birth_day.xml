@@ -60,7 +60,7 @@
             android:text="dd/mm/yyyy"
             android:textColor="@color/md_blue_grey_200"
 
-            android:textSize="30dp" />
+            android:textSize="25dp" />
 
         <Button
             android:id="@+id/btnConfirm"
