@@ -3,8 +3,11 @@
     <item
         android:drawable="@drawable/btn_hobby_check"
         android:state_checked="true"
+        android:color="@color/colorPrimary"
         />
     <item
         android:drawable="@drawable/btn_hobby_uncheck"
+        android:color="@color/md_grey_400"
         />
+
 </selector>

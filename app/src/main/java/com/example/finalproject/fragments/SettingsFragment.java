@@ -41,7 +41,7 @@ public class SettingsFragment extends Fragment {
 
     private FirebaseAuth mAuth;
     private LinearLayout image_button,info_button,setting_button;
-    private TextView profile_name_age, profile_school, profile_career;
+    private TextView profile_name_age, profile_school;
     private ImageView profile_image;
     private String currentUid;
     int nowYear;
@@ -64,6 +64,7 @@ public class SettingsFragment extends Fragment {
                     int year = Integer.parseInt(birthDay.substring(birthDay.length() - 4, birthDay.length()));
                     String age = String.valueOf(nowYear - year);
                     profile_name_age.setText(name+","+" "+age);
+                    profile_school.setText(snapshot.child("school").getValue().toString());
                     Glide.with(getContext()).load(snapshot.child("profileImageUrl").getValue().toString()).into(profile_image);
                 }
             }
@@ -90,7 +91,6 @@ public class SettingsFragment extends Fragment {
         Button signOut = view.findViewById(R.id.signOut);
         profile_image = view.findViewById(R.id.profile_image);
         profile_name_age = view.findViewById(R.id.profile_name_age);
-        profile_career = view.findViewById(R.id.profile_career);
         profile_school = view.findViewById(R.id.profile_school);
         image_button = view.findViewById(R.id.image_button);
         info_button = view.findViewById(R.id.info_button);

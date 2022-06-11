@@ -57,14 +57,6 @@
                     android:layout_gravity="center"/>
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Lập trình viên"
-                    android:id="@+id/profile_career"
-                    android:textColor="@color/md_black_1000"
-                    android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterInfo.RegisterEnemySex">
+    tools:context=".info.UserSexInfo">
 
     <ImageView
         android:id="@+id/btnBack"
@@ -12,7 +12,7 @@
         android:layout_height="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
-        android:src="@drawable/back_button" />
+        android:src="@drawable/back_btn_pink" />
 
     <LinearLayout
         android:layout_width="match_parent"

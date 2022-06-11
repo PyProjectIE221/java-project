@@ -8,7 +8,7 @@
     android:button="@null"
     android:textSize="15dp"
     android:background="@drawable/hobby_background"
-    android:textColor="@color/md_grey_400"
+    android:textColor="@drawable/hobby_background"
     android:paddingHorizontal="15dp"
     android:paddingVertical="7dp">
 

@@ -65,6 +65,12 @@ public class SwipeFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        checkUserSex();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -97,15 +103,16 @@ public class SwipeFragment extends Fragment {
         toast.setGravity(Gravity.CENTER,0,0);
         toast.setDuration(Toast.LENGTH_LONG);
         toast.setView(viewMatch);
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(mContext);
+        bottomSheetDialog.setContentView(viewDialog);
         // Info bottom sheet
         btnInfo.setOnClickListener(view1 -> {
-            BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(mContext);
-            bottomSheetDialog.setContentView(viewDialog);
             bottomSheetDialog.show();
 
             Button cancel = viewDialog.findViewById(R.id.btnBack);
             cancel.setOnClickListener(view2 ->{
                 bottomSheetDialog.dismiss();
+
             });
         });
         // Button action
@@ -265,7 +272,8 @@ public class SwipeFragment extends Fragment {
     public boolean findOpposite(DataSnapshot snapshot){
         if(!snapshot.child("connections").child("yep").hasChild(currentUid) &&
                 !snapshot.child("connections").child("nope").hasChild(currentUid) &&
-                snapshot.child("userSex").getValue().toString().equals(oppositeUserSex)){
+                snapshot.child("userSex").getValue().toString().equals(oppositeUserSex) &&
+                !snapshot.getKey().equals(currentUid)){
             if(snapshot.child("lat") != null && snapshot.child("long")!= null && lat != 0.0 && lon != 0.0){
                 if(snapshot.child("lat").getValue()!=null && snapshot.child("long").getValue() != null) {
                     oppoLat = Double.parseDouble(snapshot.child("lat").getValue().toString());
@@ -282,6 +290,8 @@ public class SwipeFragment extends Fragment {
         return false;
     }
     public void getOppositeUsers(){
+        rowItems.removeAll(rowItems);
+        arrayAdapter.notifyDataSetChanged();
         usersDb.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
@@ -296,38 +306,6 @@ public class SwipeFragment extends Fragment {
                         Cards item = new Cards(snapshot.getKey(), name, profileImageUrl, age);
                         rowItems.add(item);
                         arrayAdapter.notifyDataSetChanged();
-                    }
-                }
-            }
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-            }
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-    }
-
-    public void getOppositeUsersNotNotify(){
-        usersDb.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                if(snapshot.exists() && snapshot.child(currentUid).child("userSex")!=null) {
-
-                    if (findOpposite(snapshot)) {
-                        String profileImageUrl = snapshot.child("profileImageUrl").getValue().toString();
-                        String name = snapshot.child("name").getValue().toString();
-                        String birthDay = snapshot.child("birthDay").getValue().toString();
-                        int year = Integer.parseInt(birthDay.substring(birthDay.length() - 4, birthDay.length()));
-                        String age = String.valueOf(nowYear - year);
-                        Cards item = new Cards(snapshot.getKey(), name, profileImageUrl, age);
-                        rowItems.add(item);
                     }
                 }
             }

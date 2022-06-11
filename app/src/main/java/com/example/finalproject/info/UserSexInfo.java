@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.finalproject.R;
 import com.example.finalproject.RegisterInfo.RegisterEnemySex;
@@ -41,7 +42,12 @@ public class UserSexInfo extends AppCompatActivity {
             String sex = radioButton.getText().toString();
             Map userInfo = new HashMap();
             userInfo.put("userSex",sex);
-            db.updateChildren(userInfo);
+            try {
+                db.updateChildren(userInfo);
+                Toast.makeText(this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
             finish();
         });
     }

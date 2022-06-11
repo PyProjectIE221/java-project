@@ -1,9 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".info.EnemySexInfo">
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/back_button"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/btnBack"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:gravity="center">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/lato_regular"
+            android:paddingBottom="50dp"
+            android:gravity="left"
+            android:text="Giới tính"
+            android:textColor="@color/darkBlue"
+            android:textSize="35dp" />
+
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioGroup"
+            android:checkedButton="@id/male">
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Nam"
+                android:textSize="25dp"
+                android:textColor="@color/md_blue_grey_300"
+                android:layout_gravity="center"
+                android:background="@drawable/radio_background"
+                android:gravity="center"
+                android:button="@color/colorPrimary"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/male"
+                />
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:text="Nữ"
+                android:textSize="25dp"
+                android:textColor="@color/md_blue_grey_300"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:button="@color/white"
+                android:background="@drawable/radio_background"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/female"/>
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:text="Khác"
+                android:textSize="25dp"
+                android:textColor="@color/md_blue_grey_300"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:button="@color/white"
+                android:background="@drawable/radio_background"
+                android:layout_marginBottom="50dp"
+                android:id="@+id/other"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_confirm"
+            android:text="Xác nhận"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

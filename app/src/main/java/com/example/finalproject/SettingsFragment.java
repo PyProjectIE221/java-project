@@ -81,7 +81,6 @@ public class SettingsFragment extends Fragment {
         Button signOut = view.findViewById(R.id.signOut);
         profile_image = view.findViewById(R.id.profile_image);
         profile_name_age = view.findViewById(R.id.profile_name_age);
-        profile_career = view.findViewById(R.id.profile_career);
         profile_school = view.findViewById(R.id.profile_school);
         image_button = view.findViewById(R.id.image_button);
         info_button = view.findViewById(R.id.info_button);

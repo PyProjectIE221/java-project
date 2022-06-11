@@ -6,6 +6,8 @@
     android:scrollbars="vertical"
     tools:context=".InfoActivity"
     android:background="@color/md_grey_100"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,8 +24,9 @@
 
             <Button
                 android:id="@+id/btnBack"
-                android:layout_width="19dp"
+                android:layout_width="0dp"
                 android:layout_height="17dp"
+                android:layout_weight="1.5"
                 android:background="@drawable/back_btn_pink" />
 
             <TextView
@@ -31,14 +34,13 @@
                 android:layout_height="wrap_content"
                 android:text="Chỉnh sửa thông tin"
                 android:textSize="25dp"
-                android:textColor="@color/md_black_1000"
-                android:layout_weight="3"
+                android:textColor="@color/md_grey_700"
+                android:layout_weight="8"
                 android:fontFamily="@font/lato_regular"
                 android:gravity="center"
 
                 />
         </LinearLayout>
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -46,15 +48,13 @@
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:text="Giới thiệu bản thân"
-
-            android:textColor="@color/darkGray"
+            android:textColor="@color/colorPrimary"
             android:textSize="17dp" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Giới thiệu bản thân"
-            android:paddingLeft="10dp"
+            android:paddingLeft="10sp"
             android:background="@color/white"
             android:fontFamily="@font/lato_regular"
             android:id="@+id/introduce"/>
@@ -66,13 +66,14 @@
             android:text="Tên hiển thị"
             android:fontFamily="@font/lato_bold"
             android:textStyle="bold"
-            android:textColor="@color/darkGray"
+            android:textColor="@color/colorPrimary"
             android:textSize="17dp"
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Tên"
+            android:textColor="@color/md_grey_500"
             android:background="@color/white"
             android:fontFamily="@font/lato_regular"
             android:paddingLeft="10sp"
@@ -84,7 +85,7 @@
             android:paddingLeft="10dp"
             android:text="Sở thích"
             android:fontFamily="@font/lato_bold"
-            android:textColor="@color/darkGray"
+            android:textColor="@color/colorPrimary"
             android:textSize="17dp" />
 
         <TextView
@@ -106,16 +107,17 @@
             android:paddingLeft="10sp"
             android:text="Trường học \| Công ty"
             android:fontFamily="@font/lato_bold"
-            android:textColor="@color/darkGray"
+            android:textColor="@color/colorPrimary"
             android:textSize="17dp" />
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Trường học hoặc công ty của bạn"
+            android:text="Trường học hoặc công ty của bạn"
             android:paddingLeft="10sp"
             android:background="@color/white"
             android:fontFamily="@font/lato_regular"
-
+            android:gravity="center_vertical"
+            android:textSize="17sp"
             android:id="@+id/school"/>
         <TextView
             android:layout_width="match_parent"
@@ -124,7 +126,7 @@
             android:paddingLeft="10sp"
             android:text="Tôi là"
             android:fontFamily="@font/lato_bold"
-            android:textColor="@color/darkGray"
+            android:textColor="@color/colorPrimary"
             android:textSize="17dp"/>
         <TextView
             android:layout_width="match_parent"
@@ -143,7 +145,7 @@
             android:paddingLeft="10dp"
             android:text="Giới tính của đối phương"
             android:fontFamily="@font/lato_bold"
-            android:textColor="@color/darkGray"
+            android:textColor="@color/colorPrimary"
             android:textSize="17dp"/>
         <TextView
             android:layout_width="match_parent"
@@ -155,25 +157,47 @@
             android:gravity="center_vertical"
             android:textSize="17dp"
             android:id="@+id/enemySex"/>
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:gravity="center_vertical"-->
-<!--            android:paddingLeft="10sp"-->
-<!--            android:text="Đang sống tại"-->
-<!--            android:fontFamily="@font/lato_bold"-->
-<!--            android:textColor="@color/darkGray"-->
-<!--            android:textSize="17dp" />-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10sp"
+            android:text="Ngày sinh"
+            android:fontFamily="@font/lato_bold"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17dp" />
 
-<!--        <EditText-->
-<!--            android:id="@+id/address"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:background="@color/white"-->
-<!--            android:hint="Thêm thành phố của bạn"-->
-<!--            android:fontFamily="@font/lato_regular"-->
+        <TextView
+            android:id="@+id/Birthday"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:text="Ngày sinh"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center_vertical"
+            android:textSize="17dp"
+            android:paddingLeft="10dp" />
 
-<!--            android:paddingLeft="10dp" />-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10sp"
+            android:text="Địa chỉ"
+            android:fontFamily="@font/lato_bold"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:text="Thành phố bạn đang sống"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center_vertical"
+            android:textSize="17dp"
+            android:paddingLeft="10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
