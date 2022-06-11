@@ -17,15 +17,16 @@ android:background="@drawable/gradient_background">
     >
 
     <ImageView
-        android:layout_width="116dp"
-        android:layout_height="113dp"
-        android:paddingBottom="20dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:src="@drawable/tinder_logo_white"/>
 
 
     <ImageView
         android:layout_width="200dp"
-        android:layout_height="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="-20dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/imatch_text"/>
 </LinearLayout>
 
@@ -61,16 +62,14 @@ android:background="@drawable/gradient_background">
         android:minHeight="48dp"
         android:padding="10dp" />
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Đăng kí"
         android:id="@+id/register"
-        android:textSize="20dp"
-        android:paddingHorizontal="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_blue_selector"
+        android:text="Đăng ký"
+        android:layout_marginHorizontal="30dp"
         android:textColor="@color/whiteGray"
-        android:backgroundTint="@color/darkRed">
-
-    </Button>
+        android:textSize="18dp" />
 
 
 </LinearLayout>

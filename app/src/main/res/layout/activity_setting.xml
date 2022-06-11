@@ -21,19 +21,20 @@
 
             <Button
                 android:id="@+id/btnBack"
-                android:layout_width="19dp"
-                android:layout_height="17dp"
+                android:layout_width="30dp"
+                android:layout_height="18dp"
                 android:background="@drawable/back_btn_pink" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Thiết lập tìm kiếm"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:textColor="@color/md_black_1000"
                 android:layout_weight="3"
                 android:fontFamily="@font/lato_regular"
-                android:gravity="center" />
+                android:gravity="center"
+                android:textStyle="bold"/>
         </LinearLayout>
         <TextView
             android:layout_width="match_parent"
@@ -97,6 +98,7 @@
                     android:layout_marginHorizontal="10dp"
                     android:layout_weight="0.3"
                     android:gravity="center_vertical"
+                    android:paddingTop="10dp"
                     android:paddingLeft="10dp"
                     android:text="Phạm vi tìm kiếm"
                     android:textColor="@color/colorPrimary"
@@ -146,13 +148,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="10dp"
                     android:layout_weight="0.3"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
                     android:text="Độ tuổi"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20dp" />
@@ -187,6 +190,80 @@
             </SeekBar>
 
 
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:paddingVertical="10dp"
+                        android:layout_weight="0.3"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="Hiển thị cho tôi"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20dp"/>
+
+                    <TextView
+                        android:id="@+id/distanceID2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.7"
+                        android:textSize="20sp"
+                        android:textColor="@color/darkGray"
+                        android:gravity="center"
+                        android:text="Nữ"/>
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    >>>>>>> hnquan
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:layout_weight="0.3"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="Hiển thị tôi"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:id="@+id/distanceID3"
+                        android:layout_width="match_parent"
+                        android:paddingVertical="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.7"
+                        android:textSize="20sp"
+                        android:textColor="@color/darkGray"
+                        android:gravity="center"
+                        android:text="Có"/>
+                </LinearLayout>
 
         </LinearLayout>
         <TextView
@@ -219,80 +296,6 @@
 
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:background="@color/white"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="10dp"
-                    android:paddingVertical="10dp"
-                    android:layout_weight="0.3"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="10dp"
-                    android:text="Hiển thị cho tôi"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="20dp"/>
-
-                <TextView
-                    android:id="@+id/distanceID2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.7"
-                    android:textSize="20sp"
-                    android:textColor="@color/darkGray"
-                    android:gravity="center"
-                    android:text="Nữ"/>
-            </LinearLayout>
-
-
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:background="@color/white"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                >>>>>>> hnquan
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_weight="0.3"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="10dp"
-                    android:text="Hiển thị tôi"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="20dp" />
-
-                <TextView
-                    android:id="@+id/distanceID3"
-                    android:layout_width="match_parent"
-                    android:paddingVertical="10dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.7"
-                    android:textSize="20sp"
-                    android:textColor="@color/darkGray"
-                    android:gravity="center"
-                    android:text="Có"/>
-            </LinearLayout>
 
 
 
