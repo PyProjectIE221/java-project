@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.finalproject.InfoActivity;
 import com.example.finalproject.R;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.ResolvableApiException;
@@ -76,6 +77,7 @@ public class AddressInfo extends AppCompatActivity {
         mAddress.setOnClickListener(view ->{
             getCurrentLocation();
         });
+
     }
 
     @Override
@@ -131,8 +133,12 @@ public class AddressInfo extends AppCompatActivity {
                                         userInfo.put("long",String.valueOf(longitude));
                                         try {
                                             List<Address> addresses = geocoder.getFromLocation(latitude,longitude,1);
-                                            mAddress.setText(addresses.get(0).getAddressLine(0));
+                                            String address = addresses.get(0).getAddressLine(0);
+                                            mAddress.setText(address);
+                                            userInfo.put("address",address);
                                             db.updateChildren(userInfo);
+                                            Toast.makeText(AddressInfo.this, "Cập nhật địa chỉ thành công", Toast.LENGTH_SHORT).show();
+                                            finish();
                                         } catch (IOException e) {
                                             e.printStackTrace();
                                         }

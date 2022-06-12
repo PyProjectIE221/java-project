@@ -17,6 +17,8 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -30,6 +32,7 @@ import com.example.finalproject.adapters.ViewPagerAdapter;
 import com.example.finalproject.fragments.ChattingFragment;
 import com.example.finalproject.fragments.SettingsFragment;
 import com.example.finalproject.fragments.SwipeFragment;
+import com.example.finalproject.info.AddressInfo;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.LocationCallback;
@@ -47,8 +50,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -58,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
     private LocationRequest locationRequest;
     private FirebaseAuth mAuth;
     private DatabaseReference db;
+    private Geocoder geocoder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
-
+        geocoder = new Geocoder(this, Locale.getDefault());
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         locationRequest.setInterval(5000);
@@ -172,7 +179,14 @@ public class MainActivity extends AppCompatActivity {
                                         HashMap userInfo = new HashMap();
                                         userInfo.put("lat",String.valueOf(latitude));
                                         userInfo.put("long",String.valueOf(longitude));
-                                        db.updateChildren(userInfo);
+                                        try {
+                                            List<Address> addresses = geocoder.getFromLocation(latitude,longitude,1);
+                                            String address = addresses.get(0).getAddressLine(0);
+                                            userInfo.put("address",address);
+                                            db.updateChildren(userInfo);
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
 
                                     }
                                 }

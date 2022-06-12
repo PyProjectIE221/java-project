@@ -2,11 +2,11 @@ package com.example.finalproject;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,14 +16,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.finalproject.Chat.ChatActivity;
-import com.example.finalproject.RegisterInfo.RegisterBirthDay;
-import com.example.finalproject.RegisterInfo.RegisterHobbies;
-import com.example.finalproject.RegisterInfo.RegisterSex;
 import com.example.finalproject.info.AddressInfo;
 import com.example.finalproject.info.EnemySexInfo;
 import com.example.finalproject.info.HobbiesInfo;
-import com.example.finalproject.info.SchoolActivity;
 import com.example.finalproject.info.SchoolInfo;
 import com.example.finalproject.info.UserSexInfo;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,13 +30,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 
 public class InfoActivity extends AppCompatActivity {
     private EditText mIntroduce, mName;
@@ -75,7 +69,6 @@ public class InfoActivity extends AppCompatActivity {
         mAddress = findViewById(R.id.address);
         geocoder = new Geocoder(this,Locale.getDefault());
 
-
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -87,14 +80,15 @@ public class InfoActivity extends AppCompatActivity {
                     mUserSex.setText(snapshot.child("userSex").getValue().toString());
                     mEnemySex.setText(snapshot.child("enemySex").getValue().toString());
                     mBirthDay.setText(snapshot.child("birthDay").getValue().toString());
-                    Double lat = Double.valueOf(snapshot.child("lat").getValue().toString());
-                    Double lon = Double.valueOf(snapshot.child("long").getValue().toString());
-                    try {
-                        List<Address> addresses = geocoder.getFromLocation(lat,lon,1);
-                        mAddress.setText(addresses.get(0).getAddressLine(0));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+//                    Double lat = Double.valueOf(Objects.requireNonNull(snapshot.child("lat").getValue()).toString());
+//                    Double lon = Double.valueOf(Objects.requireNonNull(snapshot.child("long").getValue()).toString());
+//                    try {
+//                        List<Address> addresses = geocoder.getFromLocation(lat,lon,1);
+//                        mAddress.setText(addresses.get(0).getAddressLine(0));
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+                    mAddress.setText(snapshot.child("address").getValue().toString());
                 }
             }
 
