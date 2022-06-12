@@ -61,43 +61,20 @@
                         android:text="24"
                         />
                 </LinearLayout>
-<!--                <ImageView-->
-<!--                    android:layout_width="35px"-->
-<!--                    android:layout_height="35dp"-->
-<!--                    android:src="@drawable/info_button"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:layout_weight="1"/>-->
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="horizontal">-->
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:textColor="@color/white"-->
-<!--                        android:textSize="18sp"-->
-<!--                        android:textStyle="normal"-->
-<!--                        android:text="Hobbies 1"-->
-<!--                        android:id="@+id/hobbies1"/>-->
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:textColor="@color/white"-->
-<!--                        android:textSize="18sp"-->
-<!--                        android:textStyle="normal"-->
-<!--                        android:text="Hobbies 2"-->
-<!--                        android:id="@+id/hobbies2"/>-->
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:textColor="@color/white"-->
-<!--                        android:textSize="18sp"-->
-<!--                        android:textStyle="normal"-->
-<!--                        android:text="Hobbies 3"-->
-<!--                        android:id="@+id/hobbies3"/>-->
-<!--                </LinearLayout>-->
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginBottom="30dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_height="40dp"
+                    android:id="@+id/btnInfo"
+                    android:src="@drawable/info_button"/>
             </LinearLayout>
         </FrameLayout>
 
