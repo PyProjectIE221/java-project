@@ -26,12 +26,15 @@ import java.util.zip.Inflater;
 public class SchoolInfo extends AppCompatActivity {
     private TextView mSchool;
     private ImageView back;
+    private String school;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_school_info);
         back = findViewById(R.id.btnBack);
         mSchool = findViewById(R.id.school);
+        school = getIntent().getExtras().getString("school");
+        mSchool.setText(school);
         back.setOnClickListener(view -> {
             finish();
         });
