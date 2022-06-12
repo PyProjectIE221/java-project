@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,9 +16,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.finalproject.Chat.ChatActivity;
 import com.example.finalproject.RegisterInfo.RegisterBirthDay;
 import com.example.finalproject.RegisterInfo.RegisterHobbies;
 import com.example.finalproject.RegisterInfo.RegisterSex;
+import com.example.finalproject.info.AddressInfo;
 import com.example.finalproject.info.EnemySexInfo;
 import com.example.finalproject.info.HobbiesInfo;
 import com.example.finalproject.info.SchoolActivity;
@@ -70,7 +73,7 @@ public class InfoActivity extends AppCompatActivity {
         confirm = findViewById(R.id.confirm);
         mBirthDay = findViewById(R.id.Birthday);
         mAddress = findViewById(R.id.address);
-        geocoder = new Geocoder(this,Locale.TAIWAN);
+        geocoder = new Geocoder(this,Locale.getDefault());
 
 
         db.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -88,6 +91,7 @@ public class InfoActivity extends AppCompatActivity {
                     Double lon = Double.valueOf(snapshot.child("long").getValue().toString());
                     try {
                         List<Address> addresses = geocoder.getFromLocation(lat,lon,1);
+                        mAddress.setText(addresses.get(0).getAddressLine(0));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -113,11 +117,19 @@ public class InfoActivity extends AppCompatActivity {
         });
 
         mSchool.setOnClickListener(view -> {
-            startActivity(new Intent(this, SchoolInfo.class));
+            Intent intent = new Intent(this, SchoolInfo.class);
+            Bundle b = new Bundle();
+            b.putString("school",mSchool.getText().toString());
+            intent.putExtras(b);
+            startActivity(intent);
         });
 
         mAddress.setOnClickListener(view -> {
-            startActivity(new Intent(this, SchoolInfo.class));
+            Intent intent = new Intent(this,AddressInfo.class);
+            Bundle b = new Bundle();
+            b.putString("address",mAddress.getText().toString());
+            intent.putExtras(b);
+            startActivity(intent);
         });
 
         btnBack.setOnClickListener(view -> {
