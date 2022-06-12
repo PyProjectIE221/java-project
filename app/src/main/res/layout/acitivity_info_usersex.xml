@@ -13,6 +13,14 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:src="@drawable/back_button" />
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="30dp"
+        android:text="Quay lại"
+        android:textColor="@color/darkBlue"
+        android:textSize="22dp"></TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,9 +38,11 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/lato_regular"
             android:gravity="left"
+            android:layout_marginTop="30dp"
             android:paddingBottom="50dp"
-            android:text="Tôi là"
+            android:text="Giới tính"
             android:textColor="@color/darkBlue"
+            android:textStyle="bold"
             android:textSize="35dp" />
 
         <RadioGroup
@@ -88,7 +98,7 @@
             android:id="@+id/btnConfirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/btn_confirm"
             android:text="Xác nhận"
             android:textColor="@color/white"

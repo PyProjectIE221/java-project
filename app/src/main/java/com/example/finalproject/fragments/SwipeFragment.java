@@ -39,6 +39,7 @@ import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 
 
 public class SwipeFragment extends Fragment {
@@ -65,6 +66,12 @@ public class SwipeFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        checkUserSex();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -79,12 +86,12 @@ public class SwipeFragment extends Fragment {
         fabBack = view.findViewById(R.id.fabBack);
         fabLike = view.findViewById(R.id.fabLike);
         fabSkip = view.findViewById(R.id.fabSkip);
-        ImageView btnInfo = view.findViewById(R.id.btnInfo);
+//        ImageView btnInfo = view.findViewById(R.id.btnInfo);
         mContext = getContext();
         nowYear = Calendar.getInstance().get(Calendar.YEAR);
         mAuth = FirebaseAuth.getInstance();
         currentUid = mAuth.getCurrentUser().getUid();
-        viewDialog = getLayoutInflater().inflate(R.layout.info_page,null);
+//        viewDialog = getLayoutInflater().inflate(R.layout.info_page,null);
         viewMatch = getLayoutInflater().inflate(R.layout.match_announce,(ViewGroup) view.findViewById(R.id.match_layout));
         usersDb = FirebaseDatabase.getInstance().getReference().child("Users");
         checkUserSex();
@@ -97,17 +104,19 @@ public class SwipeFragment extends Fragment {
         toast.setGravity(Gravity.CENTER,0,0);
         toast.setDuration(Toast.LENGTH_LONG);
         toast.setView(viewMatch);
-        // Info bottom sheet
-        btnInfo.setOnClickListener(view1 -> {
-            BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(mContext);
-            bottomSheetDialog.setContentView(viewDialog);
-            bottomSheetDialog.show();
 
-            Button cancel = viewDialog.findViewById(R.id.btnBack);
-            cancel.setOnClickListener(view2 ->{
-                bottomSheetDialog.dismiss();
-            });
-        });
+//        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(mContext);
+//        bottomSheetDialog.setContentView(viewDialog);
+        // Info bottom sheet
+//        btnInfo.setOnClickListener(view1 -> {
+//            bottomSheetDialog.show();
+//
+//            Button cancel = viewDialog.findViewById(R.id.btnBack);
+//            cancel.setOnClickListener(view2 ->{
+//                bottomSheetDialog.dismiss();
+//
+//            });
+//        });
         // Button action
         fabLike.setOnClickListener(view1 -> {
             flingContainer.getTopCardListener().selectRight();
@@ -265,7 +274,8 @@ public class SwipeFragment extends Fragment {
     public boolean findOpposite(DataSnapshot snapshot){
         if(!snapshot.child("connections").child("yep").hasChild(currentUid) &&
                 !snapshot.child("connections").child("nope").hasChild(currentUid) &&
-                snapshot.child("userSex").getValue().toString().equals(oppositeUserSex)){
+                snapshot.child("userSex").getValue().toString().equals(oppositeUserSex) &&
+                !snapshot.getKey().equals(currentUid)){
             if(snapshot.child("lat") != null && snapshot.child("long")!= null && lat != 0.0 && lon != 0.0){
                 if(snapshot.child("lat").getValue()!=null && snapshot.child("long").getValue() != null) {
                     oppoLat = Double.parseDouble(snapshot.child("lat").getValue().toString());
@@ -282,6 +292,8 @@ public class SwipeFragment extends Fragment {
         return false;
     }
     public void getOppositeUsers(){
+        rowItems.removeAll(rowItems);
+        arrayAdapter.notifyDataSetChanged();
         usersDb.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
@@ -291,43 +303,23 @@ public class SwipeFragment extends Fragment {
                         String profileImageUrl = snapshot.child("profileImageUrl").getValue().toString();
                         String name = snapshot.child("name").getValue().toString();
                         String birthDay = snapshot.child("birthDay").getValue().toString();
+                        String school = snapshot.child("school").getValue().toString();
+                        String hobbies = snapshot.child("hobbies").getValue().toString()
+                                .replace("[","").replace("]","");
+                        String address = "";
+                        String introduce = "";
+                        String userSex = snapshot.child("userSex").getValue().toString();
+                        if(snapshot.child("address")!=null && snapshot.child("address").getValue()!=null){
+                            address = Objects.requireNonNull(snapshot.child("address").getValue()).toString();
+                        }
+                        if(snapshot.child("introduce")!=null && snapshot.child("introduce").getValue()!=null){
+                            introduce = Objects.requireNonNull(snapshot.child("introduce").getValue()).toString();
+                        }
                         int year = Integer.parseInt(birthDay.substring(birthDay.length() - 4, birthDay.length()));
                         String age = String.valueOf(nowYear - year);
-                        Cards item = new Cards(snapshot.getKey(), name, profileImageUrl, age);
+                        Cards item = new Cards(snapshot.getKey(), name, profileImageUrl, age,address,school,hobbies,introduce,userSex);
                         rowItems.add(item);
                         arrayAdapter.notifyDataSetChanged();
-                    }
-                }
-            }
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-            }
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-    }
-
-    public void getOppositeUsersNotNotify(){
-        usersDb.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                if(snapshot.exists() && snapshot.child(currentUid).child("userSex")!=null) {
-
-                    if (findOpposite(snapshot)) {
-                        String profileImageUrl = snapshot.child("profileImageUrl").getValue().toString();
-                        String name = snapshot.child("name").getValue().toString();
-                        String birthDay = snapshot.child("birthDay").getValue().toString();
-                        int year = Integer.parseInt(birthDay.substring(birthDay.length() - 4, birthDay.length()));
-                        String age = String.valueOf(nowYear - year);
-                        Cards item = new Cards(snapshot.getKey(), name, profileImageUrl, age);
-                        rowItems.add(item);
                     }
                 }
             }

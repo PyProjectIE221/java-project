@@ -2,10 +2,10 @@ package com.example.finalproject.RegisterInfo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -42,7 +42,7 @@ public class RegisterBirthDay extends AppCompatActivity {
             mCalendar.set(Calendar.DAY_OF_MONTH,i2);
             updateLabel();
         };
-        mBirthday.setOnClickListener(view -> new DatePickerDialog(RegisterBirthDay.this,date,mCalendar.get(Calendar.YEAR),mCalendar.get(Calendar.MONTH),
+        mBirthday.setOnClickListener(view -> new DatePickerDialog(RegisterBirthDay.this, AlertDialog.THEME_HOLO_LIGHT,date,mCalendar.get(Calendar.YEAR),mCalendar.get(Calendar.MONTH),
                 mCalendar.get(Calendar.DAY_OF_MONTH)).show());
 
         Button confirm = findViewById(R.id.btnConfirm);
@@ -59,7 +59,7 @@ public class RegisterBirthDay extends AppCompatActivity {
                 Intent intent = new Intent(RegisterBirthDay.this, RegisterSex.class);
                 startActivity(intent);
             }else{
-                Toast.makeText(RegisterBirthDay.this, "Tuổi bạn chọn quá nhỏ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterBirthDay.this, "Ngày sinh bạn nhập có số tuổi nhỏ hơn 16", Toast.LENGTH_SHORT).show();
             }
         });
     }

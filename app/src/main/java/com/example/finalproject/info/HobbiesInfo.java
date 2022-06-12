@@ -15,6 +15,7 @@ import com.example.finalproject.RegisterInfo.ItemClickListener;
 import com.example.finalproject.RegisterInfo.MainAdapter;
 import com.example.finalproject.RegisterInfo.RegisterHobbies;
 import com.example.finalproject.RegisterInfo.RegisterImage;
+import com.example.finalproject.utils.VerticalSpaceItemDecoration;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -52,7 +53,6 @@ public class HobbiesInfo extends AppCompatActivity {
                     }
                 });
                 results.add(s);
-                Toast.makeText(getApplicationContext(), "Selected"+s, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -64,11 +64,11 @@ public class HobbiesInfo extends AppCompatActivity {
                     }
                 });
                 results.remove(s);
-                Toast.makeText(getApplicationContext(), "Unselected"+s, Toast.LENGTH_SHORT).show();
             }
         };
 
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(9,StaggeredGridLayoutManager.HORIZONTAL));
+        recyclerView.addItemDecoration(new VerticalSpaceItemDecoration(13,20));
         adapter = new MainAdapter(arrayList,itemClickListener);
         recyclerView.setAdapter(adapter);
 
@@ -81,9 +81,14 @@ public class HobbiesInfo extends AppCompatActivity {
         confirm.setOnClickListener(view -> {
             String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
             DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("hobbies");
-            for(String result : results){
-                db.child(result).setValue(true);
+            try{
+                db.removeValue();
+                db.setValue(results.toString());
+                Toast.makeText(this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+            }catch (Exception e){
+                e.printStackTrace();
             }
+            finish();
         });
     }
 }

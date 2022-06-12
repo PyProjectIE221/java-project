@@ -1,14 +1,9 @@
-package com.example.finalproject;
-
+package com.example.finalproject.info;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
 
 import android.Manifest;
 import android.app.Activity;
@@ -16,23 +11,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
-
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
-import android.util.Log;
-import android.view.View;
-import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.finalproject.adapters.ViewPagerAdapter;
-import com.example.finalproject.fragments.ChattingFragment;
-import com.example.finalproject.fragments.SettingsFragment;
-import com.example.finalproject.fragments.SwipeFragment;
-import com.example.finalproject.info.AddressInfo;
+import com.example.finalproject.InfoActivity;
+import com.example.finalproject.R;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.LocationCallback;
@@ -44,87 +34,49 @@ import com.google.android.gms.location.LocationSettingsResponse;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-
-public class MainActivity extends AppCompatActivity {
-
-    private ViewPager viewPager;
-    private BottomNavigationView bottomNavigationView;
+public class AddressInfo extends AppCompatActivity {
+    private TextView mAddress;
+    private ImageView back;
+    private String txtAddress;
     private LocationRequest locationRequest;
     private FirebaseAuth mAuth;
     private DatabaseReference db;
     private Geocoder geocoder;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_address_info);
 
-        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        back = findViewById(R.id.btnBack);
+        mAddress = findViewById(R.id.address);
+        txtAddress = getIntent().getExtras().getString("address");
+        mAddress.setText(txtAddress);
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
         geocoder = new Geocoder(this, Locale.getDefault());
+        //Location request
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         locationRequest.setInterval(5000);
         locationRequest.setFastestInterval(2000);
 
-        getCurrentLocation();
+        //Set listener
+        back.setOnClickListener(view -> finish());
 
-        viewPager = findViewById(R.id.view_pager);
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
-        ArrayList<Fragment> fragList = new ArrayList<Fragment>();
-        fragList.add(new SettingsFragment());
-        fragList.add(new SwipeFragment());
-        fragList.add(new ChattingFragment());
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(fragList,getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        viewPager.setAdapter(viewPagerAdapter);
-        viewPager.setOffscreenPageLimit(3);
-        viewPager.setCurrentItem(1);
-        bottomNavigationView.setSelectedItemId(R.id.fire);
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.account:
-                    viewPager.setCurrentItem(0);
-                    break;
-                case R.id.fire:
-                    viewPager.setCurrentItem(1);
-                    break;
-                case R.id.chat:
-                    viewPager.setCurrentItem(2);
-                    break;
-            }
-            return true;
+        mAddress.setOnClickListener(view ->{
+            getCurrentLocation();
         });
-
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                bottomNavigationView.getMenu().getItem(position).setChecked(true);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
 
     }
 
@@ -159,16 +111,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void getCurrentLocation(){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            if(ActivityCompat.checkSelfPermission(MainActivity.this,Manifest.permission.ACCESS_FINE_LOCATION)
+            if(ActivityCompat.checkSelfPermission(AddressInfo.this, Manifest.permission.ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED){
                 if(isGPSEnabled()){
-                    LocationServices.getFusedLocationProviderClient(MainActivity.this)
+                    LocationServices.getFusedLocationProviderClient(AddressInfo.this)
                             .requestLocationUpdates(locationRequest, new LocationCallback() {
                                 @Override
                                 public void onLocationResult(@NonNull LocationResult locationResult) {
                                     super.onLocationResult(locationResult);
 
-                                    LocationServices.getFusedLocationProviderClient(MainActivity.this)
+                                    LocationServices.getFusedLocationProviderClient(AddressInfo.this)
                                             .removeLocationUpdates(this);
 
                                     if (locationResult != null && locationResult.getLocations().size() >0){
@@ -182,12 +134,14 @@ public class MainActivity extends AppCompatActivity {
                                         try {
                                             List<Address> addresses = geocoder.getFromLocation(latitude,longitude,1);
                                             String address = addresses.get(0).getAddressLine(0);
+                                            mAddress.setText(address);
                                             userInfo.put("address",address);
                                             db.updateChildren(userInfo);
+                                            Toast.makeText(AddressInfo.this, "Cập nhật địa chỉ thành công", Toast.LENGTH_SHORT).show();
+                                            finish();
                                         } catch (IOException e) {
                                             e.printStackTrace();
                                         }
-
                                     }
                                 }
                             }, Looper.getMainLooper());
@@ -218,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
 
                 try {
                     LocationSettingsResponse response = task.getResult(ApiException.class);
-                    Toast.makeText(MainActivity.this, "GPS đã bật", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddressInfo.this, "GPS đã bật", Toast.LENGTH_SHORT).show();
 
                 } catch (ApiException e) {
 
@@ -227,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
 
                             try {
                                 ResolvableApiException resolvableApiException = (ResolvableApiException) e;
-                                resolvableApiException.startResolutionForResult(MainActivity.this, 2);
+                                resolvableApiException.startResolutionForResult(AddressInfo.this, 2);
                             } catch (IntentSender.SendIntentException ex) {
                                 ex.printStackTrace();
                             }
@@ -255,5 +209,4 @@ public class MainActivity extends AppCompatActivity {
         return isEnabled;
 
     }
-
 }

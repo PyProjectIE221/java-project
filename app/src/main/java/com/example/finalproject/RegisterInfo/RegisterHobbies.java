@@ -52,7 +52,6 @@ public class RegisterHobbies extends AppCompatActivity {
                     }
                 });
                 results.add(s);
-                Toast.makeText(getApplicationContext(), "Selected"+s, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -64,7 +63,6 @@ public class RegisterHobbies extends AppCompatActivity {
                     }
                 });
                 results.remove(s);
-                Toast.makeText(getApplicationContext(), "Unselected"+s, Toast.LENGTH_SHORT).show();
             }
         };
 
@@ -82,10 +80,9 @@ public class RegisterHobbies extends AppCompatActivity {
         confirm.setOnClickListener(view -> {
             String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
             DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("hobbies");
-            for(String result : results){
-                db.child(result).setValue(true);
-            }
-            Intent intent = new Intent(RegisterHobbies.this, RegisterImage.class);
+            db.setValue(results.toString());
+
+            Intent intent = new Intent(RegisterHobbies.this, RegisterSchool.class);
             startActivity(intent);
         });
     }
