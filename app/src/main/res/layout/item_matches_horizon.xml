@@ -5,8 +5,8 @@
     android:orientation="horizontal"
     android:padding="10sp">
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="50sp"
-        android:layout_height="50sp"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
         android:src="@mipmap/ic_launcher"
         android:id="@+id/MatchImage"
         />

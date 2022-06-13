@@ -51,8 +51,8 @@ public class ChattingFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        mFilter.setQuery("", false);
         getUserMatchId();
+//        mFilter.setQuery("", true);
     }
 
     @Override
@@ -94,7 +94,6 @@ public class ChattingFragment extends Fragment {
         mMatchesAdapterHorizon = new MatchesAdapterHorizon(getMatches(),mContext);
         recyclerViewHorizontal.setAdapter(mMatchesAdapterHorizon);
 
-        getUserMatchId();
 
 
         mFilter.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

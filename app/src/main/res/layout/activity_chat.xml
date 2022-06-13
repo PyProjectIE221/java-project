@@ -20,7 +20,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/back_button" />
+            android:src="@drawable/back_btn_pink" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/matchImage"
@@ -36,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="15sp"
+            android:textStyle="bold"
             android:text="Tên của user" />
     </LinearLayout>
 

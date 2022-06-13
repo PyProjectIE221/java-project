@@ -98,6 +98,7 @@ public class ImageActivity extends AppCompatActivity {
                             userInfo1.put("profileImageUrl",uri.toString());
                             db.updateChildren(userInfo1);
                             Toast.makeText(ImageActivity.this, "Cập nhật ảnh thành công", Toast.LENGTH_SHORT).show();
+                            finish();
                         }
                     });
                 }

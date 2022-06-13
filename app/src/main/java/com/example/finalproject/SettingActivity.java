@@ -22,14 +22,16 @@ public class SettingActivity extends AppCompatActivity {
     SeekBar seekBarDis, seekBarAge;
     TextView textViewDis, textViewAge;
     private FirebaseAuth mAuth;
-
+    private DatabaseReference db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         mAuth = FirebaseAuth.getInstance();
-
+        if(mAuth.getCurrentUser()!=null){
+            db = FirebaseDatabase.getInstance().getReference().child("Users");
+        }
         seekBarDis = findViewById(R.id.SeekBarID);
         textViewDis = findViewById(R.id.distanceID);
         Button signOut = findViewById(R.id.signOut);

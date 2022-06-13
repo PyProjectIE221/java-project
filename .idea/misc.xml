@@ -65,10 +65,12 @@
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_hobbies_info.xml" value="0.16417272338606242" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_image.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_info.xml" value="0.22" />
+        <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_info_enemysex.xml" value="0.16417272338606242" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_login.xml" value="0.18" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_register.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_register_birth_day.xml" value="0.16417272338606242" />
+        <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_register_enemy_sex.xml" value="0.16417272338606242" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_register_hobbies.xml" value="0.1" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_register_image.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_register_name.xml" value="0.1675213675213675" />
@@ -91,6 +93,7 @@
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/item_matches.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/item_matches_horizon.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/item_school.xml" value="0.16417272338606242" />
+        <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/item_test.xml" value="0.16417272338606242" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/match_announce.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/menu/bottom_nav_menu_main.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/menu/chatting_menu.xml" value="0.1675929884566054" />

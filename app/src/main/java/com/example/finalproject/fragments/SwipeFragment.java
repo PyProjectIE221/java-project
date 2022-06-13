@@ -48,7 +48,7 @@ public class SwipeFragment extends Fragment {
     private List<Cards> rowItems;
     private Context mContext;
     private String userSex;
-    private String oppositeUserSex;
+    private String oppositeUserSex, enemyAge;
     private double lat, lon, distance, oppoLat, oppoLon, oppoDistance;
     private CardArrayAdapter arrayAdapter;
     private DatabaseReference usersDb;
@@ -59,6 +59,8 @@ public class SwipeFragment extends Fragment {
     private Toast toast;
     private Cards prevObj;
     int nowYear;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,15 +88,14 @@ public class SwipeFragment extends Fragment {
         fabBack = view.findViewById(R.id.fabBack);
         fabLike = view.findViewById(R.id.fabLike);
         fabSkip = view.findViewById(R.id.fabSkip);
-//        ImageView btnInfo = view.findViewById(R.id.btnInfo);
+
         mContext = getContext();
         nowYear = Calendar.getInstance().get(Calendar.YEAR);
         mAuth = FirebaseAuth.getInstance();
         currentUid = mAuth.getCurrentUser().getUid();
-//        viewDialog = getLayoutInflater().inflate(R.layout.info_page,null);
         viewMatch = getLayoutInflater().inflate(R.layout.match_announce,(ViewGroup) view.findViewById(R.id.match_layout));
         usersDb = FirebaseDatabase.getInstance().getReference().child("Users");
-        checkUserSex();
+
         rowItems = new ArrayList<Cards>();
         arrayAdapter = new CardArrayAdapter(mContext, R.layout.item, rowItems );
         SwipeFlingAdapterView flingContainer = view.findViewById(R.id.frame);
@@ -105,18 +106,6 @@ public class SwipeFragment extends Fragment {
         toast.setDuration(Toast.LENGTH_LONG);
         toast.setView(viewMatch);
 
-//        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(mContext);
-//        bottomSheetDialog.setContentView(viewDialog);
-        // Info bottom sheet
-//        btnInfo.setOnClickListener(view1 -> {
-//            bottomSheetDialog.show();
-//
-//            Button cancel = viewDialog.findViewById(R.id.btnBack);
-//            cancel.setOnClickListener(view2 ->{
-//                bottomSheetDialog.dismiss();
-//
-//            });
-//        });
         // Button action
         fabLike.setOnClickListener(view1 -> {
             flingContainer.getTopCardListener().selectRight();
@@ -251,15 +240,17 @@ public class SwipeFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
-                    if(snapshot.child("userSex") != null && snapshot.child("enemySex") != null) {
-                        userSex = snapshot.child("userSex").getValue().toString();
-                        oppositeUserSex = snapshot.child("enemySex").getValue().toString();
+                    if(snapshot.child("userSex") != null && snapshot.child("enemySex") != null && snapshot.child("enemyAge")!=null) {
+                        userSex = Objects.requireNonNull(snapshot.child("userSex").getValue()).toString();
+                        oppositeUserSex = Objects.requireNonNull(snapshot.child("enemySex").getValue()).toString();
+                        enemyAge = Objects.requireNonNull(snapshot.child("enemyAge").getValue()).toString();
+
                     }
                     if(snapshot.child("lat") !=null && snapshot.child("long") != null &&
                             snapshot.child("lat").getValue() !=null && snapshot.child("long").getValue() != null){
-                        lat = Double.parseDouble(snapshot.child("lat").getValue().toString());
-                        lon = Double.parseDouble(snapshot.child("long").getValue().toString());
-                        distance = Double.parseDouble(snapshot.child("distance").getValue().toString());
+                        lat = Double.parseDouble(Objects.requireNonNull(snapshot.child("lat").getValue()).toString());
+                        lon = Double.parseDouble(Objects.requireNonNull(snapshot.child("long").getValue()).toString());
+                        distance = Double.parseDouble(Objects.requireNonNull(snapshot.child("distance").getValue()).toString());
                     }
                     getOppositeUsers();
                 }
@@ -272,14 +263,19 @@ public class SwipeFragment extends Fragment {
         });
     }
     public boolean findOpposite(DataSnapshot snapshot){
+        String birthDay = Objects.requireNonNull(snapshot.child("birthDay").getValue()).toString();
+        int year = Integer.parseInt(birthDay.substring(birthDay.length() - 4, birthDay.length()));
         if(!snapshot.child("connections").child("yep").hasChild(currentUid) &&
                 !snapshot.child("connections").child("nope").hasChild(currentUid) &&
-                snapshot.child("userSex").getValue().toString().equals(oppositeUserSex) &&
+                Objects.requireNonNull(snapshot.child("userSex").getValue()).toString().equals(oppositeUserSex) &&
                 !snapshot.getKey().equals(currentUid)){
+            if(nowYear - year > Integer.parseInt(enemyAge)){
+                return false;
+            }
             if(snapshot.child("lat") != null && snapshot.child("long")!= null && lat != 0.0 && lon != 0.0){
                 if(snapshot.child("lat").getValue()!=null && snapshot.child("long").getValue() != null) {
-                    oppoLat = Double.parseDouble(snapshot.child("lat").getValue().toString());
-                    oppoLon = Double.parseDouble(snapshot.child("long").getValue().toString());
+                    oppoLat = Double.parseDouble(Objects.requireNonNull(snapshot.child("lat").getValue()).toString());
+                    oppoLon = Double.parseDouble(Objects.requireNonNull(snapshot.child("long").getValue()).toString());
                     oppoDistance = calDistance(oppoLat, oppoLon, lat, lon, 'K');
                     Log.d("Distance: ", String.valueOf(distance - oppoDistance));
                     if ((distance - oppoDistance) < 0) {
@@ -300,15 +296,15 @@ public class SwipeFragment extends Fragment {
                 if(snapshot.exists() && snapshot.child(currentUid).child("userSex")!=null) {
 
                     if (findOpposite(snapshot)) {
-                        String profileImageUrl = snapshot.child("profileImageUrl").getValue().toString();
-                        String name = snapshot.child("name").getValue().toString();
-                        String birthDay = snapshot.child("birthDay").getValue().toString();
-                        String school = snapshot.child("school").getValue().toString();
-                        String hobbies = snapshot.child("hobbies").getValue().toString()
+                        String profileImageUrl = Objects.requireNonNull(snapshot.child("profileImageUrl").getValue()).toString();
+                        String name = Objects.requireNonNull(snapshot.child("name").getValue()).toString();
+                        String birthDay = Objects.requireNonNull(snapshot.child("birthDay").getValue()).toString();
+                        String school = Objects.requireNonNull(snapshot.child("school").getValue()).toString();
+                        String hobbies = Objects.requireNonNull(snapshot.child("hobbies").getValue()).toString()
                                 .replace("[","").replace("]","");
                         String address = "";
                         String introduce = "";
-                        String userSex = snapshot.child("userSex").getValue().toString();
+                        String userSex = Objects.requireNonNull(snapshot.child("userSex").getValue()).toString();
                         if(snapshot.child("address")!=null && snapshot.child("address").getValue()!=null){
                             address = Objects.requireNonNull(snapshot.child("address").getValue()).toString();
                         }

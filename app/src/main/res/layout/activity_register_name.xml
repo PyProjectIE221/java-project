@@ -61,7 +61,7 @@
             android:layout_marginBottom="30dp"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
-            android:text="Đây sẽ là tên hiển thị trên iMatch"
+            android:text="Đây sẽ là tên hiển thị trên imatch"
             android:textSize="20dp"
             />
 
