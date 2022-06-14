@@ -13,8 +13,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         app:srcCompat="@drawable/tinder_logo_white" />
 
     <ImageView
@@ -65,7 +65,7 @@
         android:text="Đăng nhập"
         android:layout_marginHorizontal="50dp"
         android:textColor="@color/whiteGray"
-        android:textSize="15dp" />
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/forgot"
@@ -75,7 +75,7 @@
         android:gravity="center"
         android:text="Quên mật khẩu"
         android:textColor="@color/whiteGray"
-        android:textSize="20dp" />
+        android:textSize="17dp" />
 
 
 </LinearLayout>

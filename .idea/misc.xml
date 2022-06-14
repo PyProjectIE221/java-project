@@ -124,6 +124,29 @@
         <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/fragment_settings.xml" value="0.2" />
         <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/item.xml" value="0.2" />
         <entry key="..\:/Users/pc/OneDrive - Trường ĐH CNTT - University of Information Technology/MyCourse/HK2_FINAL/FinalProjectJava/FinalProject/app/src/main/res/layout/item_hobbies.xml" value="0.264" />
+        <entry key="app/src/main/res/drawable/gradient_blue.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/acitivity_info_usersex.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_address_info.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_enemy_sex_info.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_hobbies_info.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_image.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_info.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_info_enemysex.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_new_password.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.24141082763671878" />
+        <entry key="app/src/main/res/layout/activity_register_birth_day.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_register_enemy_sex.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_register_hobbies.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_register_image.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_register_name.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_register_phone.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_register_school.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_register_sex.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_school.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_school_info.xml" value="0.215625" />
       </map>
     </option>
   </component>

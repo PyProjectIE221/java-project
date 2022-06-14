@@ -9,7 +9,7 @@
         android:id="@+id/MatchImage"
         android:layout_width="60sp"
         android:layout_height="60sp"
-        android:src="@drawable/ic_tinder_logo" />
+        android:src="@drawable/tinder_logo_white" />
 
     <LinearLayout
         android:layout_width="match_parent"
