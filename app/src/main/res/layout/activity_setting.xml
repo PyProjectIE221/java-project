@@ -305,7 +305,7 @@
             android:layout_height="50dp"
             android:fontFamily="@font/lato_bold"
             android:gravity="center_vertical"
-            android:paddingLeft="10dp"
+            android:paddingLeft="20dp"
             android:text="Cộng đồng"
 
             android:textColor="@color/darkGray"
