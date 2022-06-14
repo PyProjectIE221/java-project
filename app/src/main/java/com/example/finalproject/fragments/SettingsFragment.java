@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.finalproject.ImageActivity;
 import com.example.finalproject.InfoActivity;
+import com.example.finalproject.MainActivity;
 import com.example.finalproject.R;
 import com.example.finalproject.RegisterInfo.RegisterImage;
 import com.example.finalproject.SettingActivity;
@@ -127,9 +128,11 @@ public class SettingsFragment extends Fragment {
             startActivity(new Intent(getActivity(), SettingActivity.class));
         });
         signOut.setOnClickListener(view1 -> {
-            mAuth.signOut();
-            startActivity(new Intent(getActivity(), StartActivity.class));
-            getActivity().finish();
+            if(mAuth.getCurrentUser()!=null) {
+                mAuth.signOut();
+                startActivity(new Intent(getActivity(), StartActivity.class));
+                getActivity().finish();
+            }
         });
     }
 }

@@ -26,7 +26,7 @@
         android:layout_height="50dp"
         android:id="@+id/school"
         android:padding="10dp"
-        android:text="Trường Đại học"
+        android:text="Trường Đại học \| Công ty của bạn"
         android:textSize="17dp"
         android:layout_marginTop="10dp"
         android:background="@color/white"

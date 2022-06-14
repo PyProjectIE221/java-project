@@ -77,6 +77,8 @@ public class RegisterActivity extends AppCompatActivity {
                             userInfo.put("introduce","");
                             userInfo.put("school","");
                             userInfo.put("address","");
+                            userInfo.put("enemyAge","40");
+                            userInfo.put("hobbies","game");
                             db.updateChildren(userInfo);
                         }
                     });

@@ -80,6 +80,7 @@ public class RegisterHobbies extends AppCompatActivity {
         confirm.setOnClickListener(view -> {
             String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
             DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("hobbies");
+            db.removeValue();
             db.setValue(results.toString());
 
             Intent intent = new Intent(RegisterHobbies.this, RegisterSchool.class);
