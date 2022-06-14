@@ -172,7 +172,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.3"
                     android:text="nhỏ hơn"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:gravity="center"
                     />
                 <TextView
@@ -180,7 +180,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
-                    android:textSize="25dp"
+                    android:textSize="20dp"
                     android:textColor="@color/darkGray"
                     android:gravity="center"
                     android:text="40"/>

@@ -31,13 +31,15 @@
         android:text="Bằng cách bấm vào Đăng nhập, bạn đồng ý với Điều khoản và chính sách của chúng tôi"
         android:textColor="@color/whiteGray"
         android:layout_marginBottom="15dp"
-        android:textSize="17sp"/>
+        android:textSize="12sp"/>
+
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginBottom="10sp"
+        android:textSize="15sp"
         android:autofillHints="emailAddress"
         android:background="@drawable/btn_white_pressed"
         android:hint="Email"
@@ -53,19 +55,19 @@
         android:autofillHints="password"
         android:background="@drawable/btn_white_pressed"
         android:hint="Mật khẩu"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:inputType="textPassword"
         android:padding="10dp" />
 
     <Button
         android:id="@+id/login"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:background="@drawable/btn_blue_selector"
         android:text="Đăng nhập"
         android:layout_marginHorizontal="50dp"
         android:textColor="@color/whiteGray"
-        android:textSize="20dp" />
+        android:textSize="15dp" />
 
     <TextView
         android:id="@+id/forgot"
