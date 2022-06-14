@@ -1,9 +1,18 @@
 package com.example.finalproject.Chat;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,7 +21,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.finalproject.MainActivity;
 import com.example.finalproject.R;
+import com.example.finalproject.fragments.ChattingFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -33,8 +45,10 @@ public class ChatActivity extends AppCompatActivity {
     private String currentUserId, matchId, chatId;
     private EditText mMessage;
     private TextView mMatchName;
-    private ImageView mSend,mMatchImage, btnBack;
-    private DatabaseReference userDb, chatDb, matchDb;
+    private ImageView mSend,mMatchImage, btnBack, info, back, infoImage;
+    private DatabaseReference userDb, chatDb, matchDb, currentUserDb;
+    private View infoLayout;
+    private TextView infoName, infoSchool, infoBirthDay, infoIntroduce, infoHobbies;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +61,7 @@ public class ChatActivity extends AppCompatActivity {
                 .child(matchId).child("chatId");
         chatDb = FirebaseDatabase.getInstance().getReference().child("Chat");
         matchDb = FirebaseDatabase.getInstance().getReference().child("Users").child(matchId);
+        currentUserDb = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserId);
         getChatId();
         recyclerView = findViewById(R.id.recyclerViewChat);
         recyclerView.setNestedScrollingEnabled(false);
@@ -56,17 +71,91 @@ public class ChatActivity extends AppCompatActivity {
         mChatAdapter = new ChatAdapter(getChat(),ChatActivity.this);
         recyclerView.setAdapter(mChatAdapter);
 
+        info = findViewById(R.id.info);
         mMessage = findViewById(R.id.message);
         btnBack = findViewById(R.id.btnBack);
         mMatchImage = findViewById(R.id.matchImage);
         mMatchName = findViewById(R.id.matchName);
+
         mSend = findViewById(R.id.send);
+
+        //Dialog info
+        infoLayout = getLayoutInflater().inflate(R.layout.chat_layout,null);
+        infoName = infoLayout.findViewById(R.id.name);
+        infoSchool = infoLayout.findViewById(R.id.school);
+        infoBirthDay = infoLayout.findViewById(R.id.birthDay);
+        infoIntroduce = infoLayout.findViewById(R.id.introduce);
+        infoHobbies = infoLayout.findViewById(R.id.hobbies);
+        infoImage = infoLayout.findViewById(R.id.image);
+        Button deleteMatch = infoLayout.findViewById(R.id.deleteMatch);
+        Dialog dialog = new Dialog(ChatActivity.this, R.style.Theme_FinalProject);
+        dialog.setContentView(infoLayout);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
+        back = infoLayout.findViewById(R.id.back);
+        info.setOnClickListener(view1->{
+            dialog.show();
+            back.setOnClickListener(v -> {
+                dialog.dismiss();
+            });
+        });
+
+        deleteMatch.setOnClickListener(v -> {
+            new AlertDialog.Builder(ChatActivity.this)
+                    .setTitle("Xóa kết nối")
+                    .setMessage("Bạn muốn xóa kết nối với người này")
+                    .setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            DatabaseReference userMatch = matchDb.child("connections").child("matches").child(currentUserId);
+                            userMatch.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    if(snapshot.exists()) {
+                                        userMatch.removeValue();
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                            DatabaseReference match = currentUserDb.child("connections").child("matches").child(matchId);
+                            match.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    if(snapshot.exists()) {
+                                        match.removeValue();
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                            startActivity(new Intent(ChatActivity.this, MainActivity.class));
+                            finish();
+                        }
+                    })
+                    .setNegativeButton("Không",null)
+                    .show();
+        });
+
+
+        //Listener
         matchDb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     Glide.with(ChatActivity.this).load(snapshot.child("profileImageUrl").getValue().toString()).into(mMatchImage);
                     mMatchName.setText(snapshot.child("name").getValue().toString());
+                    infoName.setText(snapshot.child("name").getValue().toString());
+                    infoSchool.setText(snapshot.child("school").getValue().toString());
+                    infoIntroduce.setText(snapshot.child("introduce").getValue().toString());
+                    infoBirthDay.setText(snapshot.child("birthDay").getValue().toString());
+                    infoHobbies.setText(snapshot.child("hobbies").getValue().toString()
+                            .replace("[","").replace("]",""));
                 }
             }
 
