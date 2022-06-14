@@ -150,7 +150,7 @@ public class InfoActivity extends AppCompatActivity {
             String birthDay = mBirthDay.getText().toString();
             int nowYear = Calendar.getInstance().get(Calendar.YEAR);
             int year = Integer.parseInt(birthDay.substring(birthDay.length()-4,birthDay.length()));
-            if(nowYear - year > 15) {
+            if(nowYear - year > 15 && nowYear - year < 100) {
                 userInfo.put("birthDay", birthDay);
                 try {
                     db.updateChildren(userInfo);
@@ -160,7 +160,7 @@ public class InfoActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }else{
-                Toast.makeText(InfoActivity.this, "Ngày sinh bạn nhập có số tuổi nhỏ hơn 16", Toast.LENGTH_SHORT).show();
+                Toast.makeText(InfoActivity.this, "Ngày sinh bạn nhập có số tuổi nhỏ hơn 16 hoặc lớn hơn 100", Toast.LENGTH_SHORT).show();
             }
         });
     }

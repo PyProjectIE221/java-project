@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:background="@color/md_grey_100"
         android:orientation="horizontal"
-        android:paddingBottom="10sp">
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
 
         <ImageView
             android:id="@+id/btnBack"
@@ -36,8 +37,22 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="15sp"
-            android:textStyle="bold"
-            android:text="Tên của user" />
+            android:text="Tên của user"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="end|center_vertical"
+            android:paddingRight="20dp">
+
+            <ImageView
+                android:id="@+id/info"
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/info_pink_button"
+                />
+        </LinearLayout>
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView

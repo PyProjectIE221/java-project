@@ -6,6 +6,9 @@
     android:scrollbars="vertical"
     tools:context=".SettingActivity"
     android:background="@color/md_grey_100"
+    android:focusableInTouchMode="true"
+    android:clickable="true"
+    android:focusable="true"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +25,7 @@
             <Button
                 android:id="@+id/btnBack"
                 android:layout_width="30dp"
-                android:layout_height="18dp"
+                android:layout_height="12dp"
                 android:background="@drawable/back_btn_pink" />
 
             <TextView
@@ -65,18 +68,15 @@
                 android:text="Số điện thoại"
                 android:textSize="17dp" />
 
-            <TextView
-                android:id="@+id/textView3"
+            <EditText
+                android:id="@+id/phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
                 android:layout_weight="1"
-                android:hint="84 789 857 061"/>
-=======
+                android:text="84 789 857 061"
+                android:textColor="@color/md_grey_700"/>
 
-
-
->>>>>>> hnquan
 
         </LinearLayout>
 
@@ -93,10 +93,10 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="10dp"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.6"
                     android:gravity="center_vertical"
                     android:paddingTop="10dp"
                     android:paddingLeft="10dp"
@@ -104,15 +104,23 @@
                     android:textColor="@color/colorPrimary"
                     android:textSize="20dp" />
 
-            <TextView
-                android:id="@+id/distanceID"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textSize="20dp"
-                android:textColor="@color/darkGray"
-                android:gravity="center"
-                android:text="20km."/>
+                <TextView
+                    android:id="@+id/distanceID"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.1"
+                    android:textSize="20dp"
+                    android:textColor="@color/darkGray"
+                    android:gravity="center"
+                    android:text="20"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.1"
+                    android:text="km."
+                    android:gravity="center"
+                    android:textSize="20dp"/>
+
             </LinearLayout>
 
 
@@ -149,26 +157,33 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="10dp"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.7"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:text="Độ tuổi"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20dp" />
-
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                    android:text="nhỏ hơn"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    />
                 <TextView
                     android:id="@+id/ageID"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.7"
+                    android:layout_weight="0.2"
                     android:textSize="25dp"
                     android:textColor="@color/darkGray"
                     android:gravity="center"
-                    android:text="18 - 20"/>
+                    android:text="40"/>
             </LinearLayout>
 
 
@@ -197,73 +212,7 @@
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-
-                        android:paddingVertical="10dp"
-                        android:layout_weight="0.3"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="Hiển thị cho tôi"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="20dp"/>
-
-                    <TextView
-                        android:id="@+id/distanceID2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.7"
-                        android:textSize="20sp"
-                        android:textColor="@color/darkGray"
-                        android:gravity="center"
-                        android:text="Nữ"/>
-                </LinearLayout>
-
-
-
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:background="@color/white"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    >>>>>>> hnquan
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-
-                        android:layout_weight="0.3"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="10dp"
-                        android:text="Hiển thị tôi"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:id="@+id/distanceID3"
-                        android:layout_width="match_parent"
-                        android:paddingVertical="10dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.7"
-                        android:textSize="20sp"
-                        android:textColor="@color/darkGray"
-                        android:gravity="center"
-                        android:text="Có"/>
-                </LinearLayout>
 
         </LinearLayout>
         <TextView
@@ -292,7 +241,6 @@
                 android:gravity="left|center"
                 android:layout_weight="0.8"
                 android:layout_marginHorizontal="10dp" />
-=======
 
 
         </LinearLayout>

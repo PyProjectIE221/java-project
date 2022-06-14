@@ -60,7 +60,7 @@
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/drawable/text_input_line_selector.xml" value="0.1" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/acitivity_info_usersex.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_address_info.xml" value="0.21" />
-        <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_chat.xml" value="0.1675929884566054" />
+        <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_chat.xml" value="0.16" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_enemy_sex_info.xml" value="0.16417272338606242" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_hobbies_info.xml" value="0.16417272338606242" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_image.xml" value="0.1675929884566054" />
@@ -79,10 +79,11 @@
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_register_sex.xml" value="0.1675213675213675" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_school.xml" value="0.18" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_school_info.xml" value="0.16417272338606242" />
-        <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_setting.xml" value="0.1675929884566054" />
+        <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_setting.xml" value="0.21" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_splash_screen.xml" value="0.1675213675213675" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_start.xml" value="0.1675213675213675" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/activity_user_sex_info.xml" value="0.1675929884566054" />
+        <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/chat_layout.xml" value="0.16417272338606242" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/fragment_chatting.xml" value="0.17" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/fragment_settings.xml" value="0.1675213675213675" />
         <entry key="..\:/Users/DELL/Desktop/java-project/app/src/main/res/layout/fragment_swipe.xml" value="0.12" />
